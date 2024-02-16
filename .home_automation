@@ -1,0 +1,3 @@
+[hass]
+  TOKEN=LONG LIVED ACCESS TOKEN
+  BASE_URL=http://localhost:8123

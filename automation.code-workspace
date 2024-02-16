@@ -1,0 +1,171 @@
+{
+  "folders": [{ "path": "." }],
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "aaron-bond.better-comments",
+      "pkief.material-icon-theme",
+      "dbaeumer.vscode-eslint",
+      "streetsidesoftware.code-spell-checker",
+      "esbenp.prettier-vscode",
+      "nsoult.typescript-imports-sort",
+      "YoavBls.pretty-ts-errors",
+      "redhat.vscode-yaml"
+    ]
+  },
+  "settings": {
+    "typescript.preferences.importModuleSpecifier": "relative",
+    // ! Config files
+    "files.associations": {
+      ".type_writer": "ini",
+      ".home_automation": "ini"
+    },
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/*vsix": true,
+      "**/CVS": true,
+      "**/.DS_Store": true
+    },
+    // ! <Decorative>
+    "better-comments.tags": [
+      // ! Important information
+      // > Comment Comment
+      // * Block explanations
+      // ? Command explanation
+      // % Inline code type snippets
+      // - List A
+      // ~ List B
+      // // comment that got commented out
+      // @doc DOCS LINK
+      // TODO: Some example stuff
+      // # Block A
+      // ## Block B
+      // ### Block C
+      {
+        "tag": "!",
+        "color": "#FF6E40", // Vivid orange for high importance
+        "strikethrough": false,
+        "underline": true,
+        "backgroundColor": "transparent",
+        "bold": true,
+        "italic": false
+      },
+      {
+        "tag": ">",
+        "color": "#BA68C8", // Deep purple for comments
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": true
+      },
+      {
+        "tag": "?",
+        "color": "#4FC3F7", // Bright blue for questions
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": true
+      },
+      {
+        "tag": "*",
+        "color": "#81C784", // Earthy green for block explanations
+        "strikethrough": false,
+        "underline": true,
+        "backgroundColor": "transparent",
+        "bold": true,
+        "italic": false
+      },
+      {
+        "tag": "-",
+        "color": "#FFD740", // Golden yellow for lists
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "%",
+        "color": "#FF8A65", // Soft coral for inline code
+        "strikethrough": false,
+        "underline": true,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": true
+      },
+      {
+        "tag": "~",
+        "color": "#A1887F", // Muted brown for alternate lists
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "//",
+        "color": "#78909C", // Cool grey for strikethrough
+        "strikethrough": true,
+        "underline": false,
+        "backgroundColor": "transparent",
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "todo",
+        "color": "#FF4081", // Bright pink for TODOs
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#37474F", // Darker background for emphasis
+        "bold": false,
+        "italic": false
+      },
+      {
+        "tag": "###",
+        "color": "#FFFFFF", // White on teal for Block C
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#00796B",
+        "bold": true,
+        "italic": false
+      },
+      {
+        "tag": "##",
+        "color": "#FFFFFF", // White on deep pink for Block B
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#C2185B",
+        "bold": true,
+        "italic": false
+      },
+      {
+        "tag": "#",
+        "color": "#FFFFFF", // White on indigo for Block A
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#303F9F",
+        "bold": true,
+        "italic": false
+      },
+      {
+        "tag": "@doc",
+        "color": "#B3E5FC", // Light blue for docs
+        "strikethrough": false,
+        "underline": false,
+        "backgroundColor": "#0277BD", // Dark blue background
+        "bold": true,
+        "italic": false
+      }
+    ],
+    // ! </Decorative>
+    "typescript.tsdk": "node_modules/typescript/lib"
+  }
+}
