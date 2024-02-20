@@ -1,4 +1,4 @@
-import { sleep, TServiceParams } from "@zoe-codez/zcc";
+import { sleep, TServiceParams } from "@digital-alchemy/core";
 
 export function LivingRoom({
   logger,

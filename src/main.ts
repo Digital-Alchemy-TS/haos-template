@@ -1,7 +1,7 @@
-import { CreateApplication } from "@zoe-codez/zcc";
-import { LIB_AUTOMATION } from "@zoe-codez/zcc/automation";
-import { LIB_HASS } from "@zoe-codez/zcc/hass";
-import { LIB_SYNAPSE } from "@zoe-codez/zcc/synapse";
+import { CreateApplication } from "@digital-alchemy/core";
+import { LIB_AUTOMATION } from "@digital-alchemy/core/automation";
+import { LIB_HASS } from "@digital-alchemy/core/hass";
+import { LIB_SYNAPSE } from "@digital-alchemy/core/synapse";
 
 import { GenerateEntities } from "./generated";
 import { Bedroom, LivingRoom, RoomMisc } from "./rooms";
@@ -36,7 +36,7 @@ export const HOME_AUTOMATION = CreateApplication({
   },
 });
 
-declare module "@zoe-codez/zcc" {
+declare module "@digital-alchemy/core" {
   export interface LoadedModules {
     home_automation: typeof HOME_AUTOMATION;
   }

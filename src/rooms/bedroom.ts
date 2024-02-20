@@ -1,4 +1,4 @@
-import { TServiceParams } from "@zoe-codez/zcc";
+import { TServiceParams } from "@digital-alchemy/core";
 
 export function Bedroom({ automation, context, logger }: TServiceParams) {
   /**
