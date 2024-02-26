@@ -1,52 +1,67 @@
-# Home Assistant TypeScript Integration Template 🏡💻
+# Digital Alchemy Starter Repo 🏡💻
 
-Welcome to the Home Assistant TypeScript Integration Template, proudly hosted at [zoe-codez/automation-template](https://github.com/zoe-codez/automation-template)! This template is designed to kickstart your TypeScript integration with Home Assistant, ensuring a type-safe and efficient development journey for your home automation projects.
+> [!attention] Provide a link to the Code Server Addon.
 
-## 🌟 Features
+Welcome to the Home Assistant TypeScript Integration Template, hosted at [zoe-codez/automation-template](https://github.com/zoe-codez/automation-template)! This repository is designed to kickstart your journey with TypeScript in Home Assistant.
 
-- **Automatic Type Definitions** 🛠️: Use the `type_writer` script to auto-generate TypeScript type definitions from your Home Assistant instance.
-- **Low Dependencies** 📦: We keep dependencies to a minimum to ensure your project is lightweight and maintainable.
-- **Starter Code** 🚀: Get up and running with pre-configured example code in the `src` directory.
-- **VSCode Ready** 🧰: An `automation.code-workspace` file is included for an optimized VSCode experience.
+These instructions are tailored for setting up the **Studio Code Server Addon** to utilize the library, though adjustments may be needed depending on your setup.
 
-## 🚀 Getting Started
+## 🚀 Setup
 
-### Prerequisites
+Within the **Code Server Addon**:
 
-- **Node.js Version 20** ✅: Required for compatibility. A `.nvmrc` file simplifies version management for `fnm` users.
-- **Home Assistant Instance** 🏠: Essential for connecting and generating type definitions.
+1. **Open a terminal**
+   - Press **Ctrl-Shift-\`** (default keybind) to open a terminal, or go through `Menu` > `Terminal` > `New Terminal`.
+2. **Execute the command** ⌨
+```bash
+curl -fsSL https://setup.digital-alchemy.app | bash
+```
+This script will:
+- Install Node.js on your system
+- Clone this repository
+- Install all necessary dependencies
 
-### 🛠️ Installation Steps
+> Upon completion, your directory should look like this:
 
-1. **Clone This Repository**: Start your project with a local copy of this template.
+[<img src="./docs/workspace_open.png" width="800px" />](./docs/workspace_open.png)
 
-2. **Install Node.js (if needed)**:
-   - Use `fnm` for quick Node.js version management.
-   - Run `fnm use` in the project directory to match the Node.js version specified in `.nvmrc`.
 
-3. **Install Project Dependencies**: Run `npm install` to grab the minimal dependencies needed for your project.
+Locate the workspace file inside, open it, and click **Open Workspace**. This grants access to the **NPM Scripts** panel, facilitating easy management of your workspace and execution of code.
+
+### ⚒️ Workspace Management
+
+Available scripts include:
+
+- **upgrade** : Updates to the latest versions of dependencies.
+- **type_writer**: Generates custom type definitions anew.
+- **develop**: Initiates `src/main.ts` in watch mode for real-time code updates.
+	- ⚡ Handle with care!
+- **build**: Executes the TypeScript build to verify code accuracy.
+- **run**: Launches the automation code from the build in the terminal.
+- **deploy**: Uses `pm2` for background deployment.
 
 ### ⚙️ Configuration
 
+[<img src="./docs/setup.png" width="800px" />](./docs/setup.png)
+
+**Configuration Steps:**
+
 1. **Home Assistant Access Token**:
-   - Create a long-lived access token from your Home Assistant profile.
-   - Securely store the token for `.type_writer` and `.home_automation` setup.
+   - Generate a long-lived token from your Home Assistant profile.
+   - Securely store this token for `.type_writer` and `.home_automation` configurations.
 
-2. **Setup `.type_writer` and `.home_automation`**:
-   - Input your Home Assistant URL and access token in both files for a seamless connection.
+2. **Configure `.type_writer` and `.home_automation`**:
+   - Input your Home Assistant URL and access token into both files for uninterrupted integration.
 
-### 🎯 Development Workflow
+[<img src="./docs/valid_build.png" width="800px" />](./docs/valid_build.png)
 
-- **Generate Type Definitions**: Invoke `npx type-writer` for up-to-date TypeScript type definitions.
-- **Keep It Fresh** 🍃: `npm run upgrade` ensures all dependencies are current, maintaining the project's low dependency overhead.
-- **Local Development** 🌐: `npm run dev` launches a live-reload server for efficient development.
-- **Build and Run** 🏗️: Compile with `npm run build` and execute using `node dist/main.js` for deployment.
+Run this setup anytime to update to the latest definitions from your Home Assistant instance.
 
 ### 📚 Additional Information
 
-- **Comprehensive Examples** 📖: Explore [`mock-home`](https://github.com/zoe-codez/mock-home) for extensive patterns and tools demonstrations.
-- **Synapse Custom Component** 🔌: Install [Synapse](https://github.com/zoe-codez/synapse) via HACS as a custom repository to unlock full functionality.
+- **Comprehensive Examples**: Explore [`mock-home`](https://github.com/zoe-codez/mock-home) for detailed demonstrations of patterns and tools.
+- **Synapse Custom Component**: Install [Synapse](https://github.com/zoe-codez/synapse) through HACS as a custom repository to fully unlock its capabilities.
 
-## 📄 License
+## License 📄
 
-This project is under the MIT License - detailed in the LICENSE file.
+This project is licensed under the MIT License, as detailed in the LICENSE file.

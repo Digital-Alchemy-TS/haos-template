@@ -21,5 +21,8 @@ cd ./digital_alchemy || exit
 # install the correct nodejs version
 fnm install
 
-# install @digital-alchemy, and
+# install @digital-alchemy dependencies locally
 npm install
+
+# install pm2 globally for deploys
+npm install -g pm2
