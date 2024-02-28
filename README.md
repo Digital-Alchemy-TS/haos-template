@@ -20,6 +20,7 @@ This script will:
 - Install Node.js on your system
 - Clone this repository
 - Install all necessary dependencies
+- Add the [synapse](https://github.com/zoe-codez/synapse) custom component
 
 > Upon completion, your directory should look like this:
 
@@ -37,7 +38,7 @@ Available scripts include:
 - **develop**: Initiates `src/main.ts` in watch mode for real-time code updates.
 	- ⚡ Handle with care!
 - **build**: Executes the TypeScript build to verify code accuracy.
-- **run**: Launches the automation code from the build in the terminal.
+- **stage**: Launches the automation code from the build in the terminal.
 - **deploy**: Uses `pm2` for background deployment.
 
 ### ⚙️ Configuration

@@ -1,23 +1,27 @@
 {
   "name": "automation_demo",
   "version": "0.1.0",
-  "description": "",
+  "description": "A quick start demo workspace to building code with @digital-alchemy. Tuned for supervised Home Assistant installs",
   "scripts": {
     "upgrade": "ncu -u; npm i; type-writer",
-    "dev": "tsx watch src/main.ts",
-    "build": "tsc"
+    "develop:watch": "tsx watch src/main.ts",
+    "develop": "tsx src/main.ts",
+    "deploy": "./scripts/deploy.sh",
+    "deploy:pm2": "npm run build:production; pm2 start --name home_automation ./deploy/main.js",
+    "build": "tsc",
+    "build:production": "tsc -p ./tsconfig.deploy.json"
   },
   "license": "MIT",
   "dependencies": {
-    "@digital-alchemy/core": "^0.1.7"
+    "@digital-alchemy/core": "^0.1.12"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^8.4.1",
     "@types/async": "^3.2.24",
-    "@types/node": "^20.11.19",
-    "@typescript-eslint/eslint-plugin": "7.0.2",
-    "@typescript-eslint/parser": "7.0.2",
-    "eslint": "8.56.0",
+    "@types/node": "^20.11.21",
+    "@typescript-eslint/eslint-plugin": "7.1.0",
+    "@typescript-eslint/parser": "7.1.0",
+    "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsonc": "^2.13.0",
@@ -31,7 +35,7 @@
     "npm-check-updates": "^16.14.15",
     "prettier": "^3.2.5",
     "tsx": "^4.7.1",
-    "type-fest": "^4.10.2",
+    "type-fest": "^4.10.3",
     "typescript": "^5.3.3"
   }
 }

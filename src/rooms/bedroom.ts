@@ -1,6 +1,11 @@
 import { TServiceParams } from "@digital-alchemy/core";
 
-export function Bedroom({ automation, context, logger }: TServiceParams) {
+export function Bedroom({
+  automation,
+  context,
+  logger,
+  synapse,
+}: TServiceParams) {
   /**
    * Generate a room object, capable of coordinating and enforcing scene states
    */
@@ -8,6 +13,12 @@ export function Bedroom({ automation, context, logger }: TServiceParams) {
     context,
     name: "Bedroom",
     scenes: {
+      high: {
+        definition: {
+          "light.ceiling_light": { brightness: 255, state: "on" },
+        },
+        friendly_name: "Off",
+      },
       off: {
         definition: {
           "light.ceiling_light": { state: "off" },
@@ -17,7 +28,7 @@ export function Bedroom({ automation, context, logger }: TServiceParams) {
       party: {
         definition: {},
         description: "Throwing a party",
-        friendly_name: "Off",
+        friendly_name: "Party",
       },
     },
   });
@@ -26,6 +37,15 @@ export function Bedroom({ automation, context, logger }: TServiceParams) {
     if (room.scene === "party") {
       logger.info(`Room set to party scene! 🎉`);
     }
+  });
+
+  synapse.button({
+    context,
+    exec() {
+      room.scene = "party";
+      // todo: 🎶 play some music
+    },
+    name: "Have a party",
   });
 
   return room;

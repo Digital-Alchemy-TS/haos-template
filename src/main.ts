@@ -6,15 +6,11 @@ import { LIB_SYNAPSE } from "@digital-alchemy/core/synapse";
 import { GenerateEntities } from "./generated";
 import { Bedroom, LivingRoom, RoomMisc } from "./rooms";
 
-/**
- * # Define the application
- *
- * All services you want to load need to be added to the services object below.
- * Services are defined as functions that take a single param of type `TServiceParams`.
- *
- * The application name needs to be matched to the definition in the loaded modules.
- */
-export const HOME_AUTOMATION = CreateApplication({
+// define your application, doesn't do anything productive without services
+const HOME_AUTOMATION = CreateApplication({
+  // keep your secrets out of the code!
+  // these variables will be loaded from your configuration file
+  // .home_automation in the folder root by default
   configuration: {
     EXAMPLE_CONFIGURATION: {
       default: "foo",
@@ -22,12 +18,16 @@ export const HOME_AUTOMATION = CreateApplication({
       type: "string",
     },
   },
-  libraries: [LIB_HASS, LIB_SYNAPSE, LIB_AUTOMATION],
-  name: "home_automation",
-  priorityInit: [
-    // Does one service need to load first? Add to this array
-    "generate",
+  libraries: [
+    LIB_HASS, // basic home assistant interactions
+    LIB_SYNAPSE, // entity creation tools
+    LIB_AUTOMATION, // higher level canned automation logic
   ],
+  // name must be the same as what declaration in LoadedModules
+  // affects import name in TServiceParams, and files used for configuration
+  name: "home_automation",
+  // these entries get loaded first, in the order specified
+  priorityInit: ["generate"],
   services: {
     bedroom: Bedroom,
     generate: GenerateEntities,
@@ -36,13 +36,15 @@ export const HOME_AUTOMATION = CreateApplication({
   },
 });
 
+// Load the application into the internal
 declare module "@digital-alchemy/core" {
   export interface LoadedModules {
+    /**
+     * services related to my custom home automation server
+     */
     home_automation: typeof HOME_AUTOMATION;
   }
 }
 
 // Kick off the application!
-setImmediate(async () => {
-  await HOME_AUTOMATION.bootstrap();
-});
+setImmediate(async () => await HOME_AUTOMATION.bootstrap());

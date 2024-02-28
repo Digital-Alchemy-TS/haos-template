@@ -1,20 +1,85 @@
 {
   "folders": [{ "path": "." }],
-  "launch": {
-    "version": "0.2.0",
-    "configurations": [
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Environment Setup",
+        "command": "./scripts/environment.sh",
+        "type": "shell",
+        "presentation": {
+          "reveal": "always"
+        },
+        "detail": "Verify all the dependencies are set up as expected for development"
+      },
+      {
+        "label": "Type Writer",
+        "command": "npx type-writer",
+        "type": "shell",
+        "presentation": {
+          "reveal": "always"
+        },
+        "detail": "Pull the most recent definitions from Home Assistant, and configure editor"
+      },
+      {
+        "label": "Build",
+        "command": "npm run build",
+        "type": "shell",
+        "presentation": {
+          "reveal": "always"
+        },
+        "detail": "Execute a Typescript build. Use as a 'is it valid' check, or as part of a larger script"
+      },
+      {
+        "label": "Development Server (watch mode)",
+        "command": "npx run develop:watch",
+        "type": "shell",
+        "presentation": {
+          "reveal": "always"
+        },
+        "detail": "Execute code in watch mode. Changes to files will immediately reload server"
+      },
+      {
+        "label": "Development Server",
+        "command": "npm run develop",
+        "type": "shell",
+        "presentation": {
+          "reveal": "always"
+        },
+        "detail": "Run code locally (without watch mode)"
+      },
+      {
+        "label": "Deploy via Synapse",
+        "command": "npm run deploy",
+        "type": "shell",
+        "presentation": {
+          "reveal": "always"
+        },
+        "detail": "The general environment setup script"
+      },
+      {
+        "label": "Deploy via PM2",
+        "command": "npm run deploy:pm2",
+        "type": "shell",
+        "presentation": {
+          "reveal": "always"
+        },
+        "detail": "The general environment setup script"
+      },
+      {
+        "label": "Upgrade",
+        "command": "npm run upgrade",
+        "type": "shell",
+        "presentation": {
+          "reveal": "always"
+        },
+        "detail": "Upgrade all package.json dependencies to latest"
+      }
     ]
   },
   "extensions": {
     "recommendations": [
-      "aaron-bond.better-comments",
-      "pkief.material-icon-theme",
-      "dbaeumer.vscode-eslint",
-      "streetsidesoftware.code-spell-checker",
-      "esbenp.prettier-vscode",
-      "nsoult.typescript-imports-sort",
-      "YoavBls.pretty-ts-errors",
-      "redhat.vscode-yaml"
+      "YoavBls.pretty-ts-errors"
     ]
   },
   "settings": {
@@ -28,143 +93,9 @@
       "**/.git": true,
       "**/.svn": true,
       "**/.hg": true,
-      "**/*vsix": true,
       "**/CVS": true,
       "**/.DS_Store": true
     },
-    // ! <Decorative>
-    "better-comments.tags": [
-      // ! Important information
-      // > Comment Comment
-      // * Block explanations
-      // ? Command explanation
-      // % Inline code type snippets
-      // - List A
-      // ~ List B
-      // // comment that got commented out
-      // @doc DOCS LINK
-      // TODO: Some example stuff
-      // # Block A
-      // ## Block B
-      // ### Block C
-      {
-        "tag": "!",
-        "color": "#FF6E40", // Vivid orange for high importance
-        "strikethrough": false,
-        "underline": true,
-        "backgroundColor": "transparent",
-        "bold": true,
-        "italic": false
-      },
-      {
-        "tag": ">",
-        "color": "#BA68C8", // Deep purple for comments
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "transparent",
-        "bold": false,
-        "italic": true
-      },
-      {
-        "tag": "?",
-        "color": "#4FC3F7", // Bright blue for questions
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "transparent",
-        "bold": false,
-        "italic": true
-      },
-      {
-        "tag": "*",
-        "color": "#81C784", // Earthy green for block explanations
-        "strikethrough": false,
-        "underline": true,
-        "backgroundColor": "transparent",
-        "bold": true,
-        "italic": false
-      },
-      {
-        "tag": "-",
-        "color": "#FFD740", // Golden yellow for lists
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "transparent",
-        "bold": false,
-        "italic": false
-      },
-      {
-        "tag": "%",
-        "color": "#FF8A65", // Soft coral for inline code
-        "strikethrough": false,
-        "underline": true,
-        "backgroundColor": "transparent",
-        "bold": false,
-        "italic": true
-      },
-      {
-        "tag": "~",
-        "color": "#A1887F", // Muted brown for alternate lists
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "transparent",
-        "bold": false,
-        "italic": false
-      },
-      {
-        "tag": "//",
-        "color": "#78909C", // Cool grey for strikethrough
-        "strikethrough": true,
-        "underline": false,
-        "backgroundColor": "transparent",
-        "bold": false,
-        "italic": false
-      },
-      {
-        "tag": "todo",
-        "color": "#FF4081", // Bright pink for TODOs
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "#37474F", // Darker background for emphasis
-        "bold": false,
-        "italic": false
-      },
-      {
-        "tag": "###",
-        "color": "#FFFFFF", // White on teal for Block C
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "#00796B",
-        "bold": true,
-        "italic": false
-      },
-      {
-        "tag": "##",
-        "color": "#FFFFFF", // White on deep pink for Block B
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "#C2185B",
-        "bold": true,
-        "italic": false
-      },
-      {
-        "tag": "#",
-        "color": "#FFFFFF", // White on indigo for Block A
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "#303F9F",
-        "bold": true,
-        "italic": false
-      },
-      {
-        "tag": "@doc",
-        "color": "#B3E5FC", // Light blue for docs
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "#0277BD", // Dark blue background
-        "bold": true,
-        "italic": false
-      }
-    ],
     // ! </Decorative>
     "typescript.tsdk": "node_modules/typescript/lib"
   }

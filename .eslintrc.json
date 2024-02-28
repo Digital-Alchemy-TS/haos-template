@@ -52,21 +52,6 @@
           }
         ],
         "sonarjs/prefer-immediate-return": "off",
-        "unicorn/prevent-abbreviations": [
-          "error",
-          {
-            "replacements": {
-              "docs": false,
-              "e": false,
-              "dir": false,
-              "i": false,
-              "params": false,
-              "props": false,
-              "ref": false,
-              "temp": false
-            }
-          }
-        ],
         "no-case-declarations": "off",
         "no-async-promise-executor": "off",
         "sonarjs/no-duplicate-string": "off",
@@ -81,17 +66,14 @@
           "error"
         ],
         "@typescript-eslint/no-unnecessary-type-constraint": "off",
-        "@typescript-eslint/no-unused-vars": [
-          "warn",
-          {
-            "varsIgnorePattern": "_|logger"
-          }
-        ],
+        "@typescript-eslint/no-unused-vars": "warn",
         "@typescript-eslint/no-explicit-any": "error"
       }
     },
     {
-      "files": ["*.spec.ts"],
+      "files": [
+        "*.spec.ts"
+      ],
       "env": {
         "jest": true
       },
