@@ -10,7 +10,7 @@ arch:
   - armv7
   - i386
 options:
-  app_root: /config/digital_alchemy
+  app_root: /config/home_automation
   config_file: "/config/test"
   watch: false
   mode: deploy

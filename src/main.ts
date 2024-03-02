@@ -29,10 +29,10 @@ const HOME_AUTOMATION = CreateApplication({
   // these entries get loaded first, in the order specified
   priorityInit: ["generate"],
   services: {
-    bedroom: Bedroom,
+    // bedroom: Bedroom,
     generate: GenerateEntities,
-    living_room: LivingRoom,
-    misc: RoomMisc,
+    // living_room: LivingRoom,
+    // misc: RoomMisc,
   },
 });
 

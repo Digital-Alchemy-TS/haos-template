@@ -1,10 +1,8 @@
 # Digital Alchemy Starter Repo 🏡💻
 
-> [!attention] Provide a link to the Code Server Addon.
+Welcome to the Digital Alchemy Starter Repo! This repository is designed to work with **Supervised** and **HA OS** based installs, where **Addons** are supported. See [installation documentation](https://www.home-assistant.io/installation/#advanced-installation-methods) for a comparison of different installation types. These instructions assume that [Studio Code Server Addon](https://github.com/hassio-addons/addon-vscode) has been installed, serving as both editor and workspace management tool.
 
-Welcome to the Home Assistant TypeScript Integration Template, hosted at [zoe-codez/automation-template](https://github.com/zoe-codez/automation-template)! This repository is designed to kickstart your journey with TypeScript in Home Assistant.
-
-These instructions are tailored for setting up the **Studio Code Server Addon** to utilize the library, though adjustments may be needed depending on your setup.
+Other setups may require minor changes to instructions.
 
 ## 🚀 Setup
 
@@ -20,49 +18,54 @@ This script will:
 - Install Node.js on your system
 - Clone this repository
 - Install all necessary dependencies
-- Add the [synapse](https://github.com/zoe-codez/synapse) custom component
+- Add the local code runner addon to your local addons
 
-> Upon completion, your directory should look like this:
+![img](./docs/addon.png)
 
-[<img src="./docs/workspace_open.png" width="800px" />](./docs/workspace_open.png)
+## ⚒️ Workspace Management
 
+The NodeJS environment within the Code Server addon does not survive reboots, and may occasionally need to be set up again. A script has been provided to restore your environment if something goes wrong.
+```bash
+> ./scripts/environment.sh
+```
+> Also accessible as a task within VSCode as part of the workspace. Use `Tasks: Run Task` from the command palette to access
 
-Locate the workspace file inside, open it, and click **Open Workspace**. This grants access to the **NPM Scripts** panel, facilitating easy management of your workspace and execution of code.
+Once your environment is set up, you can use provided commands from within the `package.json` to
 
-### ⚒️ Workspace Management
+| NPM Command | Description |
+| ---- | ---- |
+| **`upgrade`** | ⏺️ Upgrade all `package.json` dependencies<br>**Automatically runs `type-writer` afterwards** |
+| **`develop`** | ⏩ Run the development server from within the `Code Server` addon<br>**Not intended for long term deployments!** |
+| **`develop:watch`** | ⏭ Run the development server in watch mode from within the `Code Server` addon<br>**Automatically restart server on code changes** |
+| **`setup:addon`** | 🔁 Reinstall the code runner addon. <br>**Uses name in `package.json` to determine install path** |
+| **`build`** | 🔨 Create a build of your code in the `dist/` folder<br>**Reports all the errors in your workspace** |
+| **`build:deploy`** | 🏗️ Create a build of your code in the `deploy/` folder<br>**Addon has been set up to run from here** |
+| **`lint`** | 😱 Check your workspace for non-critical issues |
+| **`lint:fix`** | 🪛 Run `eslint --fix` to resolve minor issues |
+| **`type-writer`** | 🖨️ Rebuild custom type definitions for Home Assistant<br>**Run any time you modify your setup for more accurate definitions** |
+> When the workspace is open, these commands are available via the UI
 
-Available scripts include:
+![open workspace](./docs/workspace_open.png)
 
-- **upgrade** : Updates to the latest versions of dependencies.
-- **type_writer**: Generates custom type definitions anew.
-- **develop**: Initiates `src/main.ts` in watch mode for real-time code updates.
-	- ⚡ Handle with care!
-- **build**: Executes the TypeScript build to verify code accuracy.
-- **stage**: Launches the automation code from the build in the terminal.
-- **deploy**: Uses `pm2` for background deployment.
+## ⚙️ Configuration
 
-### ⚙️ Configuration
+![configuration files](./docs/setup.png)
 
-[<img src="./docs/setup.png" width="800px" />](./docs/setup.png)
+| Configuration File | Description |
+| ---- | ---- |
+| **`.type_writer`** | Used by `type-writer` script, responsible for building type definitions for your editor  |
+| **`.home_automation`** | Configuration file for your application. Associated with the `name` defined in `main.ts` |
+The only **required** values for both applications is credentials to connect to connect to your instance.
+- **`BASE_URL`:** hostname / ip, and optionally port, for most setups
+- **`TOKEN`:** long lived access token, generate from your user profile
 
-**Configuration Steps:**
+## 📚 Additional Information
 
-1. **Home Assistant Access Token**:
-   - Generate a long-lived token from your Home Assistant profile.
-   - Securely store this token for `.type_writer` and `.home_automation` configurations.
-
-2. **Configure `.type_writer` and `.home_automation`**:
-   - Input your Home Assistant URL and access token into both files for uninterrupted integration.
-
-[<img src="./docs/valid_build.png" width="800px" />](./docs/valid_build.png)
-
-Run this setup anytime to update to the latest definitions from your Home Assistant instance.
-
-### 📚 Additional Information
-
-- **Comprehensive Examples**: Explore [`mock-home`](https://github.com/zoe-codez/mock-home) for detailed demonstrations of patterns and tools.
-- **Synapse Custom Component**: Install [Synapse](https://github.com/zoe-codez/synapse) through HACS as a custom repository to fully unlock its capabilities.
+- [**Addon documentation**](./addon/README.md): Detailed notes on usage of the `@digital-alchemy` code runner addon
+- [**Extended examples**](https://github.com/zoe-codez/mock-home): Demonstrations of patterns and tools
+- [**Synapse Custom Component**](https://github.com/zoe-codez/synapse): Install the custom component through HACS to enable more advanced features.
+- [**`@digital-alchemy` core**](https://github.com/zoe-codez/digital-alchemy): The main project repo, please report any issues here
 
 ## License 📄
 
-This project is licensed under the MIT License, as detailed in the LICENSE file.
+This project is licensed under the MIT License, as detailed in the [LICENSE](./LICENSE) file.

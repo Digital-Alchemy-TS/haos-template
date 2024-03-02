@@ -21,7 +21,7 @@ bashio::log.info "Starting ${PACKAGE_NAME}..."
 # Determine run command based on mode
 case "${MODE}" in
     "deploy")
-        COMMAND="node dist/main.js"
+        COMMAND="node deploy/src/main.js"
         ;;
     "run")
         COMMAND="tsx src/main.ts"
