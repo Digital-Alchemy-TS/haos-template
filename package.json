@@ -6,10 +6,9 @@
     "upgrade": "ncu -u; npm i; type-writer",
     "develop:watch": "tsx watch src/main.ts",
     "develop": "tsx src/main.ts",
-    "deploy": "./scripts/deploy.sh",
-    "deploy:pm2": "npm run build:production; pm2 start --name home_automation ./deploy/main.js",
     "build": "tsc",
-    "build:production": "tsc -p ./tsconfig.deploy.json"
+    "setup:environment": "./scripts/environment.sh",
+    "setup:addon": "cp -r addon/ /addons/digital_alchemy"
   },
   "license": "MIT",
   "dependencies": {

@@ -1,0 +1,25 @@
+name: "Digital Alchemy"
+description: "Digital Alchemy deployment runner"
+version: "1.0.0"
+slug: "digital_alchemy"
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+options:
+  app_root: /config/digital_alchemy
+  config_file: "/config/test"
+  watch: false
+  mode: deploy
+
+schema:
+  app_root: str
+  config_file: str
+  watch: bool
+  mode: list(deploy|run|watch)
+
+map:
+  - config:rw

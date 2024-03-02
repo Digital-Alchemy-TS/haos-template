@@ -3,8 +3,6 @@ ignorePaths: []
 dictionaryDefinitions: []
 dictionaries: []
 words:
-  - codez
   - hass
-  - sonarjs
 ignoreWords: []
 import: []

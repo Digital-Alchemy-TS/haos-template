@@ -1,0 +1,13 @@
+configuration:
+  app_root:
+    name: Application Root
+    description: Path to the folder containing package.json
+  config_file:
+    name: Production Config
+    description: Path to config file. Blank = auto
+  mode:
+    name: Run mode
+    description: >-
+      deploy = from dist/ ||
+      run = from src/ ||
+      watch = src/ watch mode

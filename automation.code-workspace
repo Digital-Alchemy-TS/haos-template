@@ -11,69 +11,6 @@
           "reveal": "always"
         },
         "detail": "Verify all the dependencies are set up as expected for development"
-      },
-      {
-        "label": "Type Writer",
-        "command": "npx type-writer",
-        "type": "shell",
-        "presentation": {
-          "reveal": "always"
-        },
-        "detail": "Pull the most recent definitions from Home Assistant, and configure editor"
-      },
-      {
-        "label": "Build",
-        "command": "npm run build",
-        "type": "shell",
-        "presentation": {
-          "reveal": "always"
-        },
-        "detail": "Execute a Typescript build. Use as a 'is it valid' check, or as part of a larger script"
-      },
-      {
-        "label": "Development Server (watch mode)",
-        "command": "npx run develop:watch",
-        "type": "shell",
-        "presentation": {
-          "reveal": "always"
-        },
-        "detail": "Execute code in watch mode. Changes to files will immediately reload server"
-      },
-      {
-        "label": "Development Server",
-        "command": "npm run develop",
-        "type": "shell",
-        "presentation": {
-          "reveal": "always"
-        },
-        "detail": "Run code locally (without watch mode)"
-      },
-      {
-        "label": "Deploy via Synapse",
-        "command": "npm run deploy",
-        "type": "shell",
-        "presentation": {
-          "reveal": "always"
-        },
-        "detail": "The general environment setup script"
-      },
-      {
-        "label": "Deploy via PM2",
-        "command": "npm run deploy:pm2",
-        "type": "shell",
-        "presentation": {
-          "reveal": "always"
-        },
-        "detail": "The general environment setup script"
-      },
-      {
-        "label": "Upgrade",
-        "command": "npm run upgrade",
-        "type": "shell",
-        "presentation": {
-          "reveal": "always"
-        },
-        "detail": "Upgrade all package.json dependencies to latest"
       }
     ]
   },
@@ -84,7 +21,11 @@
   },
   "settings": {
     "typescript.preferences.importModuleSpecifier": "relative",
-    // ! Config files
+    "explorer.fileNesting.patterns": {
+      "package.json": ".npmrc, yarn.lock, package-lock.json, tsconfig.json",
+      ".eslintrc.json": ".nvmrc, .editorconfig, .prettierrc, .prettierignore, .eslintignore",
+      "*.ts": "${basename}.*"
+    },
     "files.associations": {
       ".type_writer": "ini",
       ".home_automation": "ini"
@@ -96,7 +37,6 @@
       "**/CVS": true,
       "**/.DS_Store": true
     },
-    // ! </Decorative>
     "typescript.tsdk": "node_modules/typescript/lib"
   }
 }
