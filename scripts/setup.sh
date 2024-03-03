@@ -134,3 +134,6 @@ echo
 echo -e "${BOLD_YELLOW}3.${NC} ${BOLD}run code"
 echo -e "  ${BLUE}-${NC} see ${CYAN}package.json${NC} for listing of all options"
 echo
+
+cd ..
+rm setup.sh
