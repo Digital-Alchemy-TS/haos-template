@@ -37,12 +37,13 @@ update_config() {
 }
 
 echo -e "${BOLD_GREEN}quick setup${NC}"
-default_folder_name="./home_automation"
+default_folder_name="home_automation"
 
 valid=0
 while [ $valid -eq 0 ]; do
-  read -r -p "Enter the folder name to build the project in (default: home_automation): " folder_name
-  folder_name=${folder_name:-home_automation}
+  echo -e "Target folder (default: ${BLUE}${default_folder_name}${NC}): \c"
+  read -r -p "" folder_name
+  folder_name=${folder_name:-"$default_folder_name"}
   folder_name=${folder_name//[-]/_}
 
   # Check if the folder name starts with a letter or underscore and contains only letters, numbers, or underscores
@@ -53,7 +54,6 @@ while [ $valid -eq 0 ]; do
     echo "Please enter a valid folder name."
   fi
 done
-
 
 if [ ! -d "$folder_name" ]; then
   wget https://github.com/zoe-codez/automation-template/archive/refs/heads/main.zip
@@ -81,12 +81,14 @@ if [ "$folder_name" != "$default_folder_name" ]; then
   fi
 fi
 
-read -r -p "Would you like to create a configuration file? (yes/no): " create_conf
-if [[ $create_conf =~ ^[Yy] ]]; then
-  read -r -p "Enter the base_url (default: http://homeassistant.local:8123): " base_url
+create_conf=$(prompt_yes_no "Create configuration file")
+
+if [[ "$create_conf" =~ "y" ]]; then
+  echo -e "Enter ${BOLD}BASE_URL${NC} (default: ${CYAN}http://homeassistant.local:8123${NC}): \c"
+  read -r -p "" base_url
   base_url=${base_url:-http://homeassistant.local:8123}
 
-  echo -n "Enter long lived access token: "
+  echo -e "Enter long ${BOLD}lived access token${NC}: "
   read -r -s token
   echo
 
