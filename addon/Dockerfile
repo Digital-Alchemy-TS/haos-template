@@ -1,26 +1,10 @@
-name: "Digital Alchemy"
-description: "Digital Alchemy code runner. Typescript in Home Assistant"
-version: "1.0.0"
-slug: "digital_alchemy"
-homeassistant_api: true
-hassio_role: admin
-init: false
-icon: mdi:crystal-ball
-arch:
-  - aarch64
-  - amd64
-  - armhf
-  - armv7
-  - i386
-options:
-  app_root: /config/digital_alchemy
-  config_file: ""
-  mode: deploy
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
-schema:
-  app_root: str
-  config_file: str
-  mode: list(deploy|run|watch)
+RUN apk add nodejs
 
-map:
-  - config:rw
+# Copy data for add-on
+COPY run.sh /
+RUN chmod a+x /run.sh
+
+CMD [ "/run.sh" ]
