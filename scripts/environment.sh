@@ -16,9 +16,9 @@ BOLD_CYAN='\033[1;36m'
 
 export PATH="./node_modules/figlet-cli/bin/:$PATH"
 if [ -d "/config" ]; then
-    FNM_DIR="/config/.fnm"
+    FNM_INSTALL_PATH="/config/.fnm"
 else
-    FNM_DIR="$HOME/.fnm"
+    FNM_INSTALL_PATH="$HOME/.fnm"
 fi
 
 if [ -z "$1" ]; then
@@ -26,26 +26,19 @@ if [ -z "$1" ]; then
 fi
 
 
-if command -v figlet &> /dev/null
-then
-  figlet -f "Elite" "Digital Alchemy" | npx lolcatjs
-  figlet -f "Pagga" "Environment Setup" | npx lolcatjs
-  echo
-fi
-
 echo -e "${BOLD_YELLOW}1.${NC} checking ${BOLD_CYAN}fnm${NC}"
 # cannot find fnm command
 if ! command -v fnm &> /dev/null
 then
   # install if not exists
-  if [ ! -d "$FNM_DIR" ]; then
+  if [ ! -d "$FNM_INSTALL_PATH" ]; then
     echo -e "${BOLD_PURPLE}fnm${NC} could not be found, installing..."
-    curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$FNM_DIR" --skip-shell
+    curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$FNM_INSTALL_PATH" --skip-shell
   fi
 
   # import into local session
   echo -e "loading ${BOLD_PURPLE}fnm${NC}"
-  export PATH="$PATH:$FNM_DIR"
+  export PATH="$PATH:$FNM_INSTALL_PATH"
   eval "$(fnm env --shell=bash)"
 else
   echo -e "${GREEN}already loaded${NC}"
@@ -55,7 +48,7 @@ echo
 echo -e "${BOLD_YELLOW}2.${NC} checking ${BOLD_CYAN}zshenv${NC}"
 if [ ! -f ~/.zshenv ] || ! grep -q "fnm env" ~/.zshenv; then
   echo -e "writing changes to ${GREEN}~/.zshenv${NC}"
-  echo "export PATH=\"$FNM_DIR:\$PATH\"" >> ~/.zshenv
+  echo "export PATH=\"$FNM_INSTALL_PATH:\$PATH\"" >> ~/.zshenv
   echo "eval \"\$(fnm env --shell=zsh)\"" >> ~/.zshenv
 else
   echo -e "${GREEN}already configured${NC}"

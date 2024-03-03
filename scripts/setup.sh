@@ -107,12 +107,12 @@ else
 fi
 
 if [ -d "/config" ]; then
-    FNM_DIR="/config/.fnm"
+    FNM_INSTALL_PATH="/config/.fnm"
 else
-    FNM_DIR="$HOME/.fnm"
+    FNM_INSTALL_PATH="$HOME/.fnm"
 fi
 
-export PATH="./node_modules/figlet-cli/bin/:$FNM_DIR:$PATH"
+export PATH="./node_modules/figlet-cli/bin/:$FNM_INSTALL_PATH:$PATH"
 eval "$(fnm env --shell=bash)"
 
 if [ -d "/config" ]; then
@@ -128,7 +128,7 @@ echo -e "${BOLD_GREEN}done!"
 echo
 figlet -f "Pagga" "Next Steps" | npx lolcatjs
 echo
-xecho -e "${BOLD_YELLOW}2.${NC} ${BOLD}write your code"
+echo -e "${BOLD_YELLOW}2.${NC} ${BOLD}write your code"
 echo -e "  ${BLUE}-${NC} ${CYAN}src/main.ts${NC} is the application entry point"
 echo
 echo -e "${BOLD_YELLOW}3.${NC} ${BOLD}run code"
