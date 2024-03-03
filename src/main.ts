@@ -48,7 +48,10 @@ const HOME_AUTOMATION = CreateApplication({
   priorityInit: ["helper"],
 
   /**
+   * Add additional services here
+   * No guaranteed loading order unless added to priority list
    *
+   * context: ServiceFunction
    */
   services: {
     entity_list: EntityList,
