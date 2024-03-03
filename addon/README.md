@@ -10,7 +10,7 @@ npm run setup:addon
 ```
 ### Overview
 
-It is set up to be extremely minimal, relying on the library and your logic to perform most of the work. If you require access to additional system resoures above and beyond the defaults, you can adjust `config.yaml` do your needs and reinstall the addon
+It is set up to be extremely minimal, relying on the library and your logic to perform most of the work. If you require access to additional system resoures above and beyond the defaults, you can adjust `config.yaml` to your needs and reinstall the addon
 
 > See [add-on documentation](https://developers.home-assistant.io/docs/add-ons/configuration#optional-configuration-options) for valid options
 

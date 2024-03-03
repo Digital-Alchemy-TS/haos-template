@@ -1,7 +1,8 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-RUN apk add nodejs
+RUN apk add nodejs npm
+RUN npm i -g tsx
 
 # Copy data for add-on
 COPY run.sh /

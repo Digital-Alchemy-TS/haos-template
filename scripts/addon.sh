@@ -33,7 +33,7 @@ if [ -d "/addons/$name" ]; then
 fi
 
 # Copy the addon directory to /addons with the name from package.json
-echo "Copying ${BOLD_CYAN}./addon${NC} to ${BOLD_CYAN}/addons/$name...${NC}"
+echo -e "Copying ${BOLD_CYAN}./addon${NC} to ${BOLD_CYAN}/addons/$name...${NC}"
 cp -r ./addon "/addons/$name"
 
 echo "Operation completed successfully."

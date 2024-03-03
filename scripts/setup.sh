@@ -128,12 +128,7 @@ echo -e "${BOLD_GREEN}done!"
 echo
 figlet -f "Pagga" "Next Steps" | npx lolcatjs
 echo
-echo -e "${BOLD_YELLOW}1.${NC} ${BOLD}open the provided code workspace"
-echo -e "  ${BLUE}-${NC} less clutter"
-echo -e "  ${BLUE}-${NC} easy access to ${CYAN}package.json${NC} scripts"
-echo -e "  ${BLUE}-${NC} from cli: ${GREEN}code ${folder_name}/automation.code-workspace"
-echo
-echo -e "${BOLD_YELLOW}2.${NC} ${BOLD}write your code"
+xecho -e "${BOLD_YELLOW}2.${NC} ${BOLD}write your code"
 echo -e "  ${BLUE}-${NC} ${CYAN}src/main.ts${NC} is the application entry point"
 echo
 echo -e "${BOLD_YELLOW}3.${NC} ${BOLD}run code"

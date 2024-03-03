@@ -12,13 +12,11 @@ arch:
 options:
   app_root: /config/home_automation
   config_file: "/config/test"
-  watch: false
   mode: deploy
 
 schema:
   app_root: str
   config_file: str
-  watch: bool
   mode: list(deploy|run|watch)
 
 map:

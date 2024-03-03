@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "description": "A quick start demo workspace to building code with @digital-alchemy. Tuned for supervised Home Assistant installs",
   "scripts": {
-    "upgrade": "./scripts/update_deps.sh",
+    "build:deploy": "./scripts/deploy.sh",
+    "build": "tsc",
     "develop:watch": "tsx watch src/main.ts",
     "develop": "tsx src/main.ts",
-    "build": "tsc",
-    "build:deploy": "./scripts/deploy.sh",
-    "setup:environment": "./scripts/environment.sh",
-    "setup:addon": "./scripts/addon.sh",
+    "lint:fix": "eslint --fix src/",
     "lint": "eslint src/",
-    "lint:fix": "eslint --fix src/"
+    "setup:addon": "./scripts/addon.sh",
+    "setup:environment": "./scripts/environment.sh",
+    "upgrade": "./scripts/update_deps.sh"
   },
   "license": "MIT",
   "dependencies": {
