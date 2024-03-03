@@ -59,6 +59,7 @@ if [ ! -d "$folder_name" ]; then
   wget https://github.com/zoe-codez/automation-template/archive/refs/heads/main.zip
   unzip main.zip
   mv automation-template-main "$folder_name"
+  rm main.zip
 fi
 
 cd "$folder_name" || exit
