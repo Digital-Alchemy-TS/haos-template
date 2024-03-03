@@ -99,10 +99,10 @@ if [[ "$create_conf" =~ "y" ]]; then
   update_config "BASE_URL" "$base_url" ".type_writer"
   update_config "TOKEN" "$token" ".type_writer"
 
-  zsh ./scripts/environment.sh "/config/$folder_name" || exit 1
+  zsh ./scripts/environment.sh "/config/$folder_name" --initial || exit 1
 else
   echo "Skipping configuration file creation."
-  zsh ./scripts/environment.sh "/config/$folder_name" --quick || exit 1
+  zsh ./scripts/environment.sh "/config/$folder_name" --initial --quick || exit 1
 fi
 
 if [ -d "/config" ]; then
@@ -111,13 +111,11 @@ else
     FNM_DIR="$HOME/.fnm"
 fi
 
-zsh ./scripts/update_deps.sh
-
-
 export PATH="./node_modules/figlet-cli/bin/:$FNM_DIR:$PATH"
 eval "$(fnm env --shell=bash)"
 
 if [ -d "/config" ]; then
+  echo
   figlet -f "Pagga" "Deploy" | npx lolcatjs
   zsh ./scripts/addon.sh
 # else
@@ -126,8 +124,8 @@ fi
 
 echo
 echo -e "${BOLD_GREEN}done!"
-figlet -f "Pagga" "Next Steps" | npx lolcatjs
 echo
+figlet -f "Pagga" "Next Steps" | npx lolcatjs
 echo
 echo -e "${BOLD_YELLOW}1.${NC} ${BOLD}open the provided code workspace"
 echo -e "  ${BLUE}-${NC} less clutter"

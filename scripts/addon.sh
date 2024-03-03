@@ -1,12 +1,19 @@
 #!/bin/bash
+# Reset
+NC='\033[0m' # No Color
 
+
+# Bold
+BOLD='\033[1m'
+BOLD_RED='\033[1;31m'
+BOLD_CYAN='\033[1;36m'
 
 if [ -z "$1" ]; then
   cd "$1" || exit
 fi
 
 if [ ! -f "package.json" ]; then
-  echo "package.json not found in the current directory."
+  echo -e "${BOLD_RED}package.json${NC} not found in the current directory."
   exit 1
 fi
 
@@ -21,12 +28,12 @@ fi
 
 # Remove the existing directory under /addons if it exists
 if [ -d "/addons/$name" ]; then
-  echo "Removing existing directory /addons/$name..."
+  echo -e "Removing existing directory ${BOLD}/addons/$name...${NC}"
   rm -rf "/addons/$name"
 fi
 
 # Copy the addon directory to /addons with the name from package.json
-echo "Copying ./addon to /addons/$name..."
+echo "Copying ${BOLD_CYAN}./addon${NC} to ${BOLD_CYAN}/addons/$name...${NC}"
 cp -r ./addon "/addons/$name"
 
 echo "Operation completed successfully."
