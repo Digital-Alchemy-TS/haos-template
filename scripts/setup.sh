@@ -36,7 +36,7 @@ update_config() {
   sed -i "/^\s*${key}\s*=/c\\${key}=${new_value}" "$file_path"
 }
 
-echo -e "${BOLD_GREEN}quick setup"
+echo -e "${BOLD_GREEN}quick setup${NC}"
 default_folder_name="./home_automation"
 
 valid=0
@@ -86,11 +86,11 @@ if [[ $create_conf =~ ^[Yy] ]]; then
   read -r -p "Enter the base_url (default: http://homeassistant.local:8123): " base_url
   base_url=${base_url:-http://homeassistant.local:8123}
 
-  echo -n "Enter the token: "
+  echo -n "Enter long lived access token: "
   read -r -s token
   echo
 
-  config_file="./$(jq -r '.name' package.json)"
+  config_file=".$(jq -r '.name' package.json)"
 
   update_config "BASE_URL" "$base_url" "$config_file"
   update_config "TOKEN" "$token" "$config_file"
