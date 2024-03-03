@@ -97,27 +97,27 @@ if [[ $create_conf =~ ^[Yy] ]]; then
   update_config "BASE_URL" "$base_url" ".type_writer"
   update_config "TOKEN" "$token" ".type_writer"
 
-  ./scripts/environment.sh "/config/$folder_name" || exit 1
+  zsh ./scripts/environment.sh "/config/$folder_name" || exit 1
 else
   echo "Skipping configuration file creation."
-  ./scripts/environment.sh "/config/$folder_name" --quick || exit 1
+  zsh ./scripts/environment.sh "/config/$folder_name" --quick || exit 1
 fi
 
-if [ -f "/.dockerenv" ]; then
+if [ -f "/config" ]; then
     FNM_DIR="/config/.fnm"
 else
     FNM_DIR="$HOME/.fnm"
 fi
 
-./scripts/update_deps.sh
+zsh ./scripts/update_deps.sh
 
 
 export PATH="./node_modules/figlet-cli/bin/:$FNM_DIR:$PATH"
 eval "$(fnm env --shell=zsh)"
 
-if [ -f "/.dockerenv" ]; then
+if [ -f "/config" ]; then
   figlet -f "Pagga" "Deploy" | npx lolcatjs
-  ./scripts/addon.sh
+  zsh ./scripts/addon.sh
 # else
   # todo: something with pm2 probably
 fi
