@@ -25,7 +25,7 @@ prompt_yes_no() {
       * ) echo "Please answer yes or no.";;
     esac
   done
-  echo $result
+  echo "$result"
 }
 
 update_config() {
