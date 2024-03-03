@@ -25,7 +25,7 @@ BOLD_WHITE='\033[1;37m'
 
 
 export PATH="./node_modules/figlet-cli/bin/:$PATH"
-if [ -f "/config" ]; then
+if [ -d "/config" ]; then
     FNM_DIR="/config/.fnm"
 else
     FNM_DIR="$HOME/.fnm"

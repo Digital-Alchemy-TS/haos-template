@@ -76,7 +76,7 @@ if [ "$folder_name" != "$default_folder_name" ]; then
   find ./src -type f -name "*.ts" -exec sed -i "s/home_automation/$new_name/g" {} \;
 
   # Rename .home_automation to .{new_name} if it exists
-  if [ -d ".home_automation" ]; then
+  if [ -f ".home_automation" ]; then
     mv .home_automation ."$new_name"
   fi
 fi
@@ -105,7 +105,7 @@ else
   zsh ./scripts/environment.sh "/config/$folder_name" --quick || exit 1
 fi
 
-if [ -f "/config" ]; then
+if [ -d "/config" ]; then
     FNM_DIR="/config/.fnm"
 else
     FNM_DIR="$HOME/.fnm"
@@ -117,7 +117,7 @@ zsh ./scripts/update_deps.sh
 export PATH="./node_modules/figlet-cli/bin/:$FNM_DIR:$PATH"
 eval "$(fnm env --shell=bash)"
 
-if [ -f "/config" ]; then
+if [ -d "/config" ]; then
   figlet -f "Pagga" "Deploy" | npx lolcatjs
   zsh ./scripts/addon.sh
 # else
