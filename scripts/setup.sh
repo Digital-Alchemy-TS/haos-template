@@ -115,7 +115,7 @@ zsh ./scripts/update_deps.sh
 
 
 export PATH="./node_modules/figlet-cli/bin/:$FNM_DIR:$PATH"
-eval "$(fnm env --shell=zsh)"
+eval "$(fnm env --shell=bash)"
 
 if [ -f "/config" ]; then
   figlet -f "Pagga" "Deploy" | npx lolcatjs

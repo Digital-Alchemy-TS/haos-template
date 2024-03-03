@@ -36,9 +36,8 @@ if [ -z "$1" ]; then
 fi
 
 
-if command -v npx &> /dev/null
+if command -v figlet &> /dev/null
 then
-  # figlet font: Elite
   figlet -f "Elite" "Digital Alchemy" | npx lolcatjs
   figlet -f "Pagga" "Environment Setup" | npx lolcatjs
   echo
