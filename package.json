@@ -9,7 +9,9 @@
     "build": "tsc",
     "build:deploy": "./scripts/deploy.sh",
     "setup:environment": "./scripts/environment.sh",
-    "setup:addon": "./scripts/addon.sh"
+    "setup:addon": "./scripts/addon.sh",
+    "lint": "eslint src/",
+    "lint:fix": "eslint --fix src/"
   },
   "license": "MIT",
   "dependencies": {

@@ -35,7 +35,7 @@ if [ -z "$1" ]; then
 fi
 
 
-if ! npx -v npx &> /dev/null
+if command -v npx &> /dev/null
 then
   # figlet font: Elite
   npx figlet -f "Elite" "Digital Alchemy" | npx lolcatjs
@@ -56,7 +56,7 @@ then
   # import into local session
   echo -e "loading ${BOLD_PURPLE}fnm${NC}"
   export PATH="$FNM_DIR:$PATH"
-  eval "$(fnm env --shell=zsh)"
+  eval "$(fnm env --shell=bash)"
 else
   echo -e "${GREEN}already loaded${NC}"
 fi

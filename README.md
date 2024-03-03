@@ -12,7 +12,7 @@ Within the **Code Server Addon**:
    - Press **Ctrl-Shift-\`** (default keybind) to open a terminal, or go through `Menu` > `Terminal` > `New Terminal`.
 2. **Execute the command** ⌨
 ```bash
-curl -fsSL https://setup.digital-alchemy.app | bash
+curl -fsSL https://setup.digital-alchemy.app -o setup.sh; bash setup.sh
 ```
 This script will:
 - Install Node.js on your system
