@@ -109,12 +109,14 @@ else
     FNM_DIR="$HOME/.fnm"
 fi
 
+./scripts/update_deps.sh
 
-export PATH="$FNM_DIR:$PATH"
+
+export PATH="./node_modules/figlet-cli/bin/:$FNM_DIR:$PATH"
 eval "$(fnm env --shell=zsh)"
 
 if [ -f "/.dockerenv" ]; then
-  npx figlet -f "Pagga" "Deploy" | npx lolcatjs
+  figlet -f "Pagga" "Deploy" | npx lolcatjs
   ./scripts/addon.sh
 # else
   # todo: something with pm2 probably
@@ -122,7 +124,7 @@ fi
 
 echo
 echo -e "${BOLD_GREEN}done!"
-npx figlet -f "Pagga" "Next Steps" | npx lolcatjs
+figlet -f "Pagga" "Next Steps" | npx lolcatjs
 echo
 echo
 echo -e "${BOLD_YELLOW}1.${NC} ${BOLD}open the provided code workspace"

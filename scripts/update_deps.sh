@@ -1,8 +1,9 @@
 #!/bin/bash
+export PATH="./node_modules/figlet-cli/bin/:$PATH"
 
 if npx -v npx &> /dev/null
 then
-  npx figlet -f "Pagga" "upgrade npm" | npx lolcatjs
+  figlet -f "Pagga" "upgrade npm" | npx lolcatjs
   echo
   npx ncu -u
   npm i

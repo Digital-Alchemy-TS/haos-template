@@ -24,6 +24,7 @@ BOLD_CYAN='\033[1;36m'
 BOLD_WHITE='\033[1;37m'
 
 
+export PATH="./node_modules/figlet-cli/bin/:$PATH"
 if [ -f "/.dockerenv" ]; then
     FNM_DIR="/config/.fnm"
 else
@@ -38,8 +39,8 @@ fi
 if command -v npx &> /dev/null
 then
   # figlet font: Elite
-  npx figlet -f "Elite" "Digital Alchemy" | npx lolcatjs
-  npx figlet -f "Pagga" "Environment Setup" | npx lolcatjs
+  figlet -f "Elite" "Digital Alchemy" | npx lolcatjs
+  figlet -f "Pagga" "Environment Setup" | npx lolcatjs
   echo
 fi
 
@@ -55,7 +56,7 @@ then
 
   # import into local session
   echo -e "loading ${BOLD_PURPLE}fnm${NC}"
-  export PATH="$FNM_DIR:$PATH"
+  export PATH="$PATH:$FNM_DIR"
   eval "$(fnm env --shell=bash)"
 else
   echo -e "${GREEN}already loaded${NC}"
@@ -90,7 +91,7 @@ npm install > /dev/null
 for arg in "$@"
 do
   if [ "$arg" = "--quick" ]; then
-    npx figlet -f "Pagga" "Success" | npx lolcatjs
+    figlet -f "Pagga" "Success" | npx lolcatjs
     exit 0
   fi
 done
@@ -105,7 +106,7 @@ output=$(npx type-writer --validate_configuration 2>&1)
 # Check the output for specific patterns indicating success or failure
 if echo "$output" | grep -q "401: Unauthorized"; then
   echo -e "${RED}"
-  npx figlet -f "Pagga" "Error"
+  figlet -f "Pagga" "Error"
   echo -e "${NC}"
   echo -e "Invalid ${BOLD_RED}TOKEN${NC}"
   exit 1
@@ -113,7 +114,7 @@ elif echo "$output" | grep -q "API running"; then
   echo -e "${GREEN}valid${NC}"
 else
   echo -e "${RED}"
-  npx figlet -f "Pagga" "Error"
+  figlet -f "Pagga" "Error"
   echo -e "${NC}"
   echo -e "invalid ${BOLD_RED}BASE_URL${NC} - ${BOLD_BLUE}script output${NC}"
   echo
@@ -125,5 +126,5 @@ echo
 echo -e "${BOLD_YELLOW}6.${NC} rebuilding ${BOLD_CYAN}custom definitions${NC}"
 npx type-writer
 echo
-npx figlet -f "Pagga" "Success" | npx lolcatjs
+figlet -f "Pagga" "Success" | npx lolcatjs
 exit 0
