@@ -65,7 +65,7 @@ if [ -d "$folder_name" ]; then
   if [[ "$update_scripts" =~ "y" ]]; then
     cp automation-quickstart-main/scripts/* "$folder_name/scripts/"
   fi
-  rm -r "$folder_name"
+  rm -r automation-quickstart-main
 else
   mv automation-quickstart-main "$folder_name"
 fi
