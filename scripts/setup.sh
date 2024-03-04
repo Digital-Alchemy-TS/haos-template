@@ -55,12 +55,21 @@ while [ $valid -eq 0 ]; do
   fi
 done
 
-if [ ! -d "$folder_name" ]; then
-  wget https://github.com/zoe-codez/automation-template/archive/refs/heads/main.zip
-  unzip main.zip
+wget https://github.com/zoe-codez/automation-template/archive/refs/heads/main.zip
+unzip main.zip
+# Either set up a new workspace, or update scripts/ based on repo
+if [ -d "$folder_name" ]; then
+  echo -e "${BOLD_YELLOW}Target already exists${NC}"
+  echo -e "Update ${CYAN}scripts/${NC} \c"
+  update_scripts=$(prompt_yes_no "")
+  if [[ "$update_scripts" =~ "y" ]]; then
+    cp automation-template-main/scripts/* "$folder_name/scripts/"
+  fi
+  rm -r "$folder_name"
+else
   mv automation-template-main "$folder_name"
-  rm main.zip
 fi
+rm main.zip
 
 cd "$folder_name" || exit
 
