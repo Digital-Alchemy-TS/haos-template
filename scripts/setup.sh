@@ -55,7 +55,7 @@ while [ $valid -eq 0 ]; do
   fi
 done
 
-wget https://github.com/zoe-codez/automation-template/archive/refs/heads/main.zip
+wget https://github.com/zoe-codez/automation-quickstart/archive/refs/heads/main.zip
 unzip main.zip
 # Either set up a new workspace, or update scripts/ based on repo
 if [ -d "$folder_name" ]; then
@@ -63,11 +63,11 @@ if [ -d "$folder_name" ]; then
   echo -e "Update ${CYAN}scripts/${NC} \c"
   update_scripts=$(prompt_yes_no "")
   if [[ "$update_scripts" =~ "y" ]]; then
-    cp automation-template-main/scripts/* "$folder_name/scripts/"
+    cp automation-quickstart-main/scripts/* "$folder_name/scripts/"
   fi
   rm -r "$folder_name"
 else
-  mv automation-template-main "$folder_name"
+  mv automation-quickstart-main "$folder_name"
 fi
 rm main.zip
 
