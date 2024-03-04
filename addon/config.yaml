@@ -11,7 +11,7 @@ arch:
   - i386
 options:
   app_root: /config/home_automation
-  config_file: "/config/test"
+  config_file: ""
   mode: deploy
 
 schema:

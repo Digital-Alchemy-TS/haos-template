@@ -11,6 +11,7 @@
     "lint": "eslint src/",
     "setup:addon": "./scripts/addon.sh",
     "setup:environment": "./scripts/environment.sh",
+    "type-writer": "type-writer",
     "upgrade": "./scripts/update_deps.sh"
   },
   "license": "MIT",
