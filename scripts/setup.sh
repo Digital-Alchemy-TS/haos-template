@@ -87,7 +87,7 @@ if [ "$folder_name" != "$default_folder_name" ]; then
 
   # Rename .home_automation to .{new_name} if it exists
   if [ -f ".home_automation" ]; then
-    mv .home_automation ."$new_name"
+    mv .home_automation ".$new_name"
   fi
 fi
 
@@ -101,6 +101,8 @@ if [[ -n "$HASSIO_TOKEN" || -n "$SUPERVISOR_TOKEN" ]]; then
     echo
     figlet -f "Pagga" "Addon" | npx lolcatjs
     zsh ./scripts/addon.sh
+    rm ".$new_name"
+    rm .type_writer
 else
   create_conf=$(prompt_yes_no "Create configuration file")
 
@@ -113,7 +115,7 @@ else
     read -r -s token
     echo
 
-    config_file=".$(jq -r '.name' package.json)"
+    config_file=".$new_name"
 
     update_config "BASE_URL" "$base_url" "$config_file"
     update_config "TOKEN" "$token" "$config_file"
