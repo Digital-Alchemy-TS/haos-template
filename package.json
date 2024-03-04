@@ -16,14 +16,14 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@digital-alchemy/core": "^0.1.15"
+    "@digital-alchemy/core": "^0.1.16"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^8.5.0",
     "@types/async": "^3.2.24",
     "@types/node": "^20.11.24",
-    "@typescript-eslint/eslint-plugin": "7.1.0",
-    "@typescript-eslint/parser": "7.1.0",
+    "@typescript-eslint/eslint-plugin": "7.1.1",
+    "@typescript-eslint/parser": "7.1.1",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "^2.29.1",
