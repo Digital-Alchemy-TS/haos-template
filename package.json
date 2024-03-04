@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@digital-alchemy/core": "^0.1.13"
+    "@digital-alchemy/core": "^0.1.14"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^8.5.0",
@@ -40,7 +40,7 @@
     "npm-check-updates": "^16.14.15",
     "prettier": "^3.2.5",
     "tsx": "^4.7.1",
-    "type-fest": "^4.10.3",
+    "type-fest": "^4.11.0",
     "typescript": "^5.3.3"
   }
 }
