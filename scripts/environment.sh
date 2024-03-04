@@ -14,16 +14,14 @@ BOLD_PURPLE='\033[1;35m'
 BOLD_CYAN='\033[1;36m'
 
 
-export PATH="./node_modules/figlet-cli/bin/:$PATH"
-if [ -d "/config" ]; then
-    FNM_INSTALL_PATH="/config/.fnm"
+if [[ -n "$HASSIO_TOKEN" || -n "$SUPERVISOR_TOKEN" ]]; then
+  FNM_INSTALL_PATH="/config/.fnm"
 else
-    FNM_INSTALL_PATH="$HOME/.fnm"
+  FNM_INSTALL_PATH="$HOME/.fnm"
 fi
 
-if [ -z "$1" ]; then
-  cd "$1" || exit
-fi
+export PATH="./node_modules/figlet-cli/bin/:$FNM_INSTALL_PATH:$PATH"
+
 
 
 echo -e "${BOLD_YELLOW}1.${NC} checking ${BOLD_CYAN}fnm${NC}"
@@ -38,7 +36,6 @@ then
 
   # import into local session
   echo -e "loading ${BOLD_PURPLE}fnm${NC}"
-  export PATH="$PATH:$FNM_INSTALL_PATH"
   eval "$(fnm env --shell=bash)"
 else
   echo -e "${GREEN}already loaded${NC}"

@@ -47,18 +47,6 @@ Once your environment is set up, you can use provided commands from within the `
 
 ![open workspace](./docs/workspace_open.png)
 
-## ⚙️ Configuration
-
-![configuration files](./docs/setup.png)
-
-| Configuration File | Description |
-| ---- | ---- |
-| **`.type_writer`** | Used by `type-writer` script, responsible for building type definitions for your editor  |
-| **`.home_automation`** | Configuration file for your application. Associated with the `name` defined in `main.ts` |
-The only **required** values for both applications is credentials to connect to connect to your instance.
-- **`BASE_URL`:** hostname / ip, and optionally port, for most setups
-- **`TOKEN`:** long lived access token, generate from your user profile
-
 ## 📚 Additional Information
 
 - [**Addon documentation**](./addon/README.md): Detailed notes on usage of the `@digital-alchemy` code runner addon

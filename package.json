@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@digital-alchemy/core": "^0.1.14"
+    "@digital-alchemy/core": "^0.1.15"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^8.5.0",

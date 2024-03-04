@@ -91,45 +91,45 @@ if [ "$folder_name" != "$default_folder_name" ]; then
   fi
 fi
 
-create_conf=$(prompt_yes_no "Create configuration file")
+if [[ -n "$HASSIO_TOKEN" || -n "$SUPERVISOR_TOKEN" ]]; then
+    echo -e "🔮 ${BOLD_PURPLE}auto configure from addon environment${NC} 🪄"
+    zsh ./scripts/environment.sh "/config/$folder_name" --initial || exit 1
 
-if [[ "$create_conf" =~ "y" ]]; then
-  echo -e "Enter ${BOLD}BASE_URL${NC} (default: ${CYAN}http://homeassistant.local:8123${NC}): \c"
-  read -r -p "" base_url
-  base_url=${base_url:-http://homeassistant.local:8123}
+    export PATH="./node_modules/figlet-cli/bin/:/config/.fnm:$PATH"
+    eval "$(fnm env --shell=bash)"
 
-  echo -e "Enter long ${BOLD}lived access token${NC}: "
-  read -r -s token
-  echo
-
-  config_file=".$(jq -r '.name' package.json)"
-
-  update_config "BASE_URL" "$base_url" "$config_file"
-  update_config "TOKEN" "$token" "$config_file"
-  update_config "BASE_URL" "$base_url" ".type_writer"
-  update_config "TOKEN" "$token" ".type_writer"
-
-  zsh ./scripts/environment.sh "/config/$folder_name" --initial || exit 1
+    echo
+    figlet -f "Pagga" "Addon" | npx lolcatjs
+    zsh ./scripts/addon.sh
 else
-  echo "Skipping configuration file creation."
-  zsh ./scripts/environment.sh "/config/$folder_name" --initial --quick || exit 1
-fi
+  create_conf=$(prompt_yes_no "Create configuration file")
 
-if [ -d "/config" ]; then
-    FNM_INSTALL_PATH="/config/.fnm"
-else
-    FNM_INSTALL_PATH="$HOME/.fnm"
-fi
+  if [[ "$create_conf" =~ "y" ]]; then
+    echo -e "Enter ${BOLD}BASE_URL${NC} (default: ${CYAN}http://homeassistant.local:8123${NC}): \c"
+    read -r -p "" base_url
+    base_url=${base_url:-http://homeassistant.local:8123}
 
-export PATH="./node_modules/figlet-cli/bin/:$FNM_INSTALL_PATH:$PATH"
-eval "$(fnm env --shell=bash)"
+    echo -e "Enter long ${BOLD}lived access token${NC}: "
+    read -r -s token
+    echo
 
-if [ -d "/config" ]; then
-  echo
-  figlet -f "Pagga" "Deploy" | npx lolcatjs
-  zsh ./scripts/addon.sh
-# else
+    config_file=".$(jq -r '.name' package.json)"
+
+    update_config "BASE_URL" "$base_url" "$config_file"
+    update_config "TOKEN" "$token" "$config_file"
+    update_config "BASE_URL" "$base_url" ".type_writer"
+    update_config "TOKEN" "$token" ".type_writer"
+
+  zsh ./scripts/environment.sh "./$folder_name" --initial || exit 1
+  else
+    echo "Skipping configuration file creation."
+    zsh ./scripts/environment.sh "./$folder_name" --initial --quick || exit 1
+  fi
+
+  export PATH="./node_modules/figlet-cli/bin/:$HOME/.fnm:$PATH"
+  eval "$(fnm env --shell=bash)"
   # todo: something with pm2 probably
+
 fi
 
 echo
