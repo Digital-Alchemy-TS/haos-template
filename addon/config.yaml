@@ -3,6 +3,7 @@ description: "Digital Alchemy deployment runner"
 version: "1.0.0"
 slug: "digital_alchemy"
 init: false
+homeassistant_api: true
 arch:
   - aarch64
   - amd64
