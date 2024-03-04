@@ -56,7 +56,7 @@ while [ $valid -eq 0 ]; do
 done
 
 wget https://github.com/zoe-codez/automation-quickstart/archive/refs/heads/main.zip
-unzip main.zip
+unzip -q main.zip
 # Either set up a new workspace, or update scripts/ based on repo
 if [ -d "$folder_name" ]; then
   echo -e "${BOLD_YELLOW}Target already exists${NC}"
