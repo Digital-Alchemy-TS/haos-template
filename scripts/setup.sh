@@ -93,6 +93,8 @@ fi
 
 if [[ -n "$HASSIO_TOKEN" || -n "$SUPERVISOR_TOKEN" ]]; then
     echo -e "🔮 ${BOLD_PURPLE}auto configure from addon environment${NC} 🪄"
+    rm ".$new_name"
+    rm .type_writer
     zsh ./scripts/environment.sh "/config/$folder_name" --initial || exit 1
 
     export PATH="./node_modules/figlet-cli/bin/:/config/.fnm:$PATH"
@@ -101,8 +103,6 @@ if [[ -n "$HASSIO_TOKEN" || -n "$SUPERVISOR_TOKEN" ]]; then
     echo
     figlet -f "Pagga" "Addon" | npx lolcatjs
     zsh ./scripts/addon.sh
-    rm ".$new_name"
-    rm .type_writer
 else
   create_conf=$(prompt_yes_no "Create configuration file")
 
