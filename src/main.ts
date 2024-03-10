@@ -1,5 +1,5 @@
 import { CreateApplication } from "@digital-alchemy/core";
-import { LIB_HASS } from "@digital-alchemy/core/hass";
+import { LIB_HASS } from "@digital-alchemy/hass";
 
 import { EntityList } from "./entity-list";
 import { HelperFile } from "./helper";
