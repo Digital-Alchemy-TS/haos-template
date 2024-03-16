@@ -2,6 +2,8 @@
 
 This addon acts as a simple configurable execution container for applications based on Digital Alchemy. The code runner addon comes with `NodeJS` installed inside of the container already, just hit go
 
+> Extended documentation: https://docs.digital-alchemy.app/07-Automation-Quickstart/
+
 ## Installing & Updating
 
 This addon ships as part of the the automation template repo, and is intended to be installed as a local addon. To **install** / **update** the addon using the `package.json` script

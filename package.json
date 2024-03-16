@@ -1,6 +1,6 @@
 {
   "name": "home_automation",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A quick start demo workspace to building code with @digital-alchemy. Tuned for supervised Home Assistant installs",
   "scripts": {
     "build:deploy": "./scripts/deploy.sh",
@@ -16,14 +16,14 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@digital-alchemy/core": "^0.2.2",
-    "@digital-alchemy/hass": "^0.2.3"
+    "@digital-alchemy/core": "^0.3.1",
+    "@digital-alchemy/hass": "^0.3.1"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^8.6.0",
-    "@digital-alchemy/type-writer": "^0.2.1",
+    "@digital-alchemy/type-writer": "^0.2.2",
     "@types/async": "^3.2.24",
-    "@types/node": "^20.11.27",
+    "@types/node": "^20.11.28",
     "@typescript-eslint/eslint-plugin": "7.2.0",
     "@typescript-eslint/parser": "7.2.0",
     "eslint": "8.57.0",
@@ -39,7 +39,7 @@
     "eslint-plugin-unicorn": "^51.0.1",
     "figlet-cli": "^0.1.1",
     "lolcatjs": "^2.4.3",
-    "npm-check-updates": "^16.14.15",
+    "npm-check-updates": "^16.14.17",
     "prettier": "^3.2.5",
     "tsx": "^4.7.1",
     "type-fest": "^4.12.0",
