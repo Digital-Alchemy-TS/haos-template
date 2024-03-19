@@ -22,6 +22,21 @@ This script will:
 
 ![img](./docs/addon.png)
 
+### ⚙️ Manual Configuration
+
+This project ships with 2 relevant configuration files. If you are running the code within an addon, then the Home Assistant credentials aren't needed
+
+1. [`.type_writer`](./.type_writer) - credentials for the `type-writer` script
+2. [`.home_automation`](./.home_automation) - credentials for your application
+
+Both files are the project root, and look something like this to get started
+
+```ini
+[hass]
+  TOKEN=LONG LIVED ACCESS TOKEN
+  BASE_URL=http://homeassistant.local:8123
+```
+
 ## ⚒️ Workspace Management
 
 The NodeJS environment within the Code Server addon does not survive reboots, and may occasionally need to be set up again. A script has been provided to restore your environment if something goes wrong.

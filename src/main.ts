@@ -31,6 +31,12 @@ const HOME_AUTOMATION = CreateApplication({
      * Will automatically start websocket as part of bootstrap
      */
     LIB_HASS,
+
+    /**
+     * Un comment to enable the synapse library
+     *
+     */
+    // LIB_SYNAPSE,
   ],
 
   /**

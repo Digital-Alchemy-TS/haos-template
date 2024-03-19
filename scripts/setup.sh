@@ -33,7 +33,7 @@ update_config() {
   local new_value="$2"
   local file_path="$3"
 
-  sed -i "/^\s*${key}\s*=/c\\${key}=${new_value}" "$file_path"
+  sed -i -E "/^[;[:space:]]*${key}[[:space:]]*=/c\\${key}=${new_value}" "$file_path"
 }
 
 echo -e "${BOLD_GREEN}quick setup${NC}"
@@ -93,8 +93,6 @@ fi
 
 if [[ -n "$HASSIO_TOKEN" || -n "$SUPERVISOR_TOKEN" ]]; then
     echo -e "🔮 ${BOLD_PURPLE}auto configure from addon environment${NC} 🪄"
-    rm ".$new_name"
-    rm .type_writer
     zsh ./scripts/environment.sh "/config/$folder_name" --initial || exit 1
 
     export PATH="./node_modules/figlet-cli/bin/:/config/.fnm:$PATH"
