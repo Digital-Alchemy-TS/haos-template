@@ -22,6 +22,10 @@ This script will:
 
 ![img](./docs/addon.png)
 
+### 🏎️ Speedrun
+
+![speedrun](./docs/zeroconf.mp4)
+
 ### ⚙️ Manual Configuration
 
 This project ships with 2 relevant configuration files. If you are running the code within an addon, then the Home Assistant credentials aren't needed
