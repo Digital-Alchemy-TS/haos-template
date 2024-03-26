@@ -1,6 +1,7 @@
 {
   "name": "home_automation",
-  "version": "0.3.2",
+  "version": "0.3.3",
+  "homepage": "https://docs.digital-alchemy.app/Quickstart",
   "description": "A quick start demo workspace to building code with @digital-alchemy. Tuned for supervised Home Assistant installs",
   "scripts": {
     "build:deploy": "./scripts/deploy.sh",
@@ -8,6 +9,7 @@
     "develop:watch": "tsx watch src/main.ts",
     "develop": "tsx src/main.ts",
     "lint:fix": "eslint --fix src/",
+    "rollback": "./scripts/rollback.sh",
     "lint": "eslint src/",
     "setup:addon": "./scripts/addon.sh",
     "setup:environment": "./scripts/environment.sh",
@@ -16,17 +18,17 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@digital-alchemy/core": "^0.3.5",
-    "@digital-alchemy/hass": "^0.3.2",
-    "@digital-alchemy/synapse": "^0.3.2"
+    "@digital-alchemy/core": "^0.3.8",
+    "@digital-alchemy/hass": "^0.3.7",
+    "@digital-alchemy/synapse": "^0.3.5"
   },
   "devDependencies": {
-    "@cspell/eslint-plugin": "^8.6.0",
-    "@digital-alchemy/type-writer": "^0.3.0",
+    "@cspell/eslint-plugin": "^8.6.1",
+    "@digital-alchemy/type-writer": "^0.3.5",
     "@types/async": "^3.2.24",
     "@types/node": "^20.11.30",
-    "@typescript-eslint/eslint-plugin": "7.3.1",
-    "@typescript-eslint/parser": "7.3.1",
+    "@typescript-eslint/eslint-plugin": "7.4.0",
+    "@typescript-eslint/parser": "7.4.0",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "^2.29.1",
@@ -40,10 +42,10 @@
     "eslint-plugin-unicorn": "^51.0.1",
     "figlet-cli": "^0.1.1",
     "lolcatjs": "^2.4.3",
-    "npm-check-updates": "^16.14.17",
+    "npm-check-updates": "^16.14.18",
     "prettier": "^3.2.5",
     "tsx": "^4.7.1",
-    "type-fest": "^4.13.0",
-    "typescript": "^5.4.2"
+    "type-fest": "^4.14.0",
+    "typescript": "^5.4.3"
   }
 }

@@ -1,5 +1,11 @@
 import { TServiceParams } from "@digital-alchemy/core";
 
+/**
+ * There's other helpful things inside TServiceParams
+ *
+ * https://docs.digital-alchemy.app/TServiceParams
+ * https://docs.digital-alchemy.app/Hass
+ */
 export function EntityList({ hass, logger, home_automation }: TServiceParams) {
   // note: helper must be loaded first
   const { theChosenEntity } = home_automation.helper;

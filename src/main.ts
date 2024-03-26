@@ -4,7 +4,6 @@ import { LIB_HASS } from "@digital-alchemy/hass";
 import { EntityList } from "./entity-list";
 import { HelperFile } from "./helper";
 
-// define your application, doesn't do anything productive without services
 const HOME_AUTOMATION = CreateApplication({
   /**
    * keep your secrets out of the code!
@@ -19,10 +18,8 @@ const HOME_AUTOMATION = CreateApplication({
   },
 
   /**
-   * @digital-alchemy/core also provides:
-   *
-   * - LIB_SYNAPSE: entity generation tools (requires custom component)
-   * - LIB_AUTOMATION: higher level automation functions (requires synapse)
+   * Adding to this array will provide additional elements in TServiceParams
+   * for your code to use
    */
   libraries: [
     /**
@@ -31,12 +28,6 @@ const HOME_AUTOMATION = CreateApplication({
      * Will automatically start websocket as part of bootstrap
      */
     LIB_HASS,
-
-    /**
-     * Un comment to enable the synapse library
-     *
-     */
-    // LIB_SYNAPSE,
   ],
 
   /**
@@ -65,7 +56,7 @@ const HOME_AUTOMATION = CreateApplication({
   },
 });
 
-// Add module to library internals
+// Load the type definitions
 declare module "@digital-alchemy/core" {
   export interface LoadedModules {
     home_automation: typeof HOME_AUTOMATION;

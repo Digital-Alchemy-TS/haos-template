@@ -1,5 +1,11 @@
 import { CronExpression, TServiceParams } from "@digital-alchemy/core";
 
+/**
+ * There's other helpful things inside TServiceParams
+ *
+ * https://docs.digital-alchemy.app/TServiceParams
+ * https://docs.digital-alchemy.app/Hass
+ */
 export function HelperFile({
   logger,
   hass,
