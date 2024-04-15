@@ -4,7 +4,7 @@ Welcome to the Digital Alchemy Starter Repo!
 
 This repository is designed to work with **Supervised** and **HA OS** based installs, where **Addons** are supported. See [installation documentation](https://www.home-assistant.io/installation/#advanced-installation-methods) for a comparison of different installation types. These instructions assume that [Studio Code Server Addon](https://github.com/hassio-addons/addon-vscode) has been installed, serving as both editor and workspace management tool.
 
-- 🗣️ Join [Discord](https://discord.com/invite/mtWHk36upW)
+- 🗣️ Join [Discord](https://discord.gg/JkZ35Gv97Y)
 - 📖 More about the **Quickstart** project https://docs.digital-alchemy.app/Quickstart
 - 🤖 What next? https://blog.digital-alchemy.app/Next-Steps
 
