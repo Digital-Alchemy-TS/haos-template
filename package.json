@@ -1,7 +1,7 @@
 {
   "name": "home_automation",
   "version": "0.3.3",
-  "homepage": "https://docs.digital-alchemy.app/Quickstart",
+  "homepage": "https://docs.digital-alchemy.app/Automation-Quickstart",
   "description": "A quick start demo workspace to building code with @digital-alchemy. Tuned for supervised Home Assistant installs",
   "scripts": {
     "build:deploy": "./scripts/deploy.sh",
