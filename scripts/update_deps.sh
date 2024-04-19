@@ -5,7 +5,7 @@ if command -v npx &> /dev/null
 then
   figlet -f "Pagga" "upgrade npm" | npx lolcatjs
   echo
-  npx ncu -u
+  npx ncu -f "@digital-alchemy/*" -u
   npm i
 else
   npm i
