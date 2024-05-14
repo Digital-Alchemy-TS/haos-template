@@ -44,6 +44,7 @@
     "lolcatjs": "^2.4.3",
     "npm-check-updates": "^16.14.18",
     "prettier": "^3.2.5",
+    "tslib": "^2.6.2",
     "tsx": "^4.7.2",
     "type-fest": "^4.15.0",
     "typescript": "^5.4.5"
