@@ -69,7 +69,7 @@ npm install > /dev/null
 for arg in "$@"
 do
   if [ "$arg" = "--initial" ]; then
-    npx ncu -u
+    npx ncu -f "@digital-alchemy/*" -u
     npm install > /dev/null
   fi
 done
