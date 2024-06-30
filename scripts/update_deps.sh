@@ -3,12 +3,11 @@ export PATH="./node_modules/figlet-cli/bin/:$PATH"
 
 if command -v npx &> /dev/null
 then
-  figlet -f "Pagga" "upgrade npm" | npx lolcatjs
+  figlet -f "Pagga" "upgrade dependences" | npx lolcatjs
   echo
-  npx ncu -f "@digital-alchemy/*" -u
-  npm i
+  yarn up "@digital-alchemy/*"
 else
-  npm i
+  yarn install
 fi
 
 npx type-writer
