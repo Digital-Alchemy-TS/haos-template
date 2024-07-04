@@ -3,15 +3,14 @@
 
 # Fetch configuration options
 APP_ROOT=$(bashio::config 'app_root')
-CONFIG_FILE=$(bashio::config 'config_file')
 MODE=$(bashio::config 'mode')
+ENV_FILE=$(bashio::config 'env_file')
 
 # Navigate to the app root
 cd "${APP_ROOT}" || bashio::exit.nok "Could not navigate to application root: ${APP_ROOT}"
-
 # Validate package.json exists
 if [[ ! -f "package.json" ]]; then
-    bashio::exit.nok "package.json not found in ${APP_ROOT}"
+  bashio::exit.nok "package.json not found in ${APP_ROOT}"
 fi
 
 # Extract package name from package.json
@@ -20,25 +19,21 @@ bashio::log.info "Starting ${PACKAGE_NAME}..."
 
 # Determine run command based on mode
 case "${MODE}" in
-    "deploy")
-        COMMAND="node deploy/src/main.js"
-        ;;
-    "run")
-        COMMAND="tsx src/main.ts"
-        ;;
-    "watch")
-        COMMAND="tsx watch src/main.ts"
-        ;;
-    *)
-        bashio::exit.nok "Invalid mode: ${MODE}"
-        ;;
+  "deploy")
+    if [ -n "$ENV_FILE" ]; then
+        node --env-file "${ENV_FILE}" deploy/src/main.js
+    else
+        node deploy/src/main.js
+    fi
+    ;;
+  "watch")
+    if [ -n "$ENV_FILE" ]; then
+        npx dotenv -e "${ENV_FILE}" -- npx nodemon --exec tsx src/main.ts
+    else
+        npx nodemon --exec tsx src/main.ts
+    fi
+    ;;
+  *)
+    bashio::exit.nok "Invalid mode: ${MODE}"
+    ;;
 esac
-
-# Append config file if provided
-if [[ -n "${CONFIG_FILE}" ]]; then
-    COMMAND="${COMMAND} --config ${CONFIG_FILE}"
-fi
-
-# Execute the command
-bashio::log.info "Executing command: ${COMMAND}"
-eval "${COMMAND}"

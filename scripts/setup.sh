@@ -137,6 +137,10 @@ echo -e "${BOLD_GREEN}done!"
 echo
 figlet -f "Pagga" "Next Steps" | npx lolcatjs
 echo
+echo -e "${BOLD_YELLOW}1.${NC} ${BOLD}add init script to Studio Code Server"
+echo -e "  ${BLUE}-${NC} add the following as an ${PURPLE}init_command${NC} in the ${BLUE}Configuration${NC} tab"
+echo -e "  ${GRAY}/config/${}/scripts/init.sh${NC}"
+echo
 echo -e "${BOLD_YELLOW}2.${NC} ${BOLD}write your code"
 echo -e "  ${BLUE}-${NC} ${CYAN}src/main.ts${NC} is the application entry point"
 echo
