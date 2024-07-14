@@ -18,13 +18,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@digital-alchemy/core": "^24.6.6",
-    "@digital-alchemy/hass": "^24.6.9",
-    "@digital-alchemy/synapse": "^24.6.6"
+    "@digital-alchemy/core": "^24.7.1",
+    "@digital-alchemy/hass": "^24.7.4",
+    "@digital-alchemy/synapse": "^24.7.1"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^8.7.0",
-    "@digital-alchemy/type-writer": "^24.6.6",
+    "@digital-alchemy/type-writer": "^24.7.2",
     "@types/async": "^3.2.24",
     "@types/node": "^20.12.7",
     "@typescript-eslint/eslint-plugin": "7.6.0",

@@ -552,7 +552,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@digital-alchemy/core@npm:^24.6.1, @digital-alchemy/core@npm:^24.6.6":
+"@digital-alchemy/core@npm:^24.6.1":
   version: 24.6.6
   resolution: "@digital-alchemy/core@npm:24.6.6"
   dependencies:
@@ -573,6 +573,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@digital-alchemy/core@npm:^24.7.1":
+  version: 24.7.1
+  resolution: "@digital-alchemy/core@npm:24.7.1"
+  dependencies:
+    chalk: "npm:^5.3.0"
+    dayjs: "npm:^1.11.11"
+    dotenv: "npm:^16.4.5"
+    ini: "npm:^4.1.3"
+    js-yaml: "npm:^4.1.0"
+    minimist: "npm:^1.2.8"
+    node-cache: "npm:^5.1.2"
+    node-cron: "npm:^3.0.3"
+    prom-client: "npm:^15.1.2"
+    redis: "npm:^4.6.14"
+  dependenciesMeta:
+    redis:
+      optional: true
+  checksum: 10/fd5dbdb47890c26348951a4ace7b4496b943d3271a2a50430a3456c2abf25de50192dd4e26e8d93279e040f13ba366f86d75686efadcc750d20dbaf1051189a6
+  languageName: node
+  linkType: hard
+
 "@digital-alchemy/fastify-extension@npm:*":
   version: 24.6.1
   resolution: "@digital-alchemy/fastify-extension@npm:24.6.1"
@@ -588,9 +609,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@digital-alchemy/hass@npm:^24.6.9":
-  version: 24.6.9
-  resolution: "@digital-alchemy/hass@npm:24.6.9"
+"@digital-alchemy/hass@npm:^24.7.4":
+  version: 24.7.4
+  resolution: "@digital-alchemy/hass@npm:24.7.4"
   dependencies:
     dayjs: "npm:^1.11.11"
     prom-client: "npm:^15.1.2"
@@ -600,13 +621,13 @@ __metadata:
     "@digital-alchemy/core": "*"
   bin:
     mock-assistant: dist/mock_assistant/main.js
-  checksum: 10/f314cf9448a07d6e935ebfb43198ac926aaa73778fb6e32ff89474fb52cdcbb68daa5c1352384eecce8ea4946c858471ba7d62a3bcac59e1c12849fcc762eb6c
+  checksum: 10/cd67f875b2e8e54810a1053232c3c2d6955912abc26eb0fbe887529b70c7ef79f97cee071c1cd5992f13b4db750897e5385ac419d0c2304fd4fdaed5c6192778
   languageName: node
   linkType: hard
 
-"@digital-alchemy/synapse@npm:^24.6.6":
-  version: 24.6.6
-  resolution: "@digital-alchemy/synapse@npm:24.6.6"
+"@digital-alchemy/synapse@npm:^24.7.1":
+  version: 24.7.1
+  resolution: "@digital-alchemy/synapse@npm:24.7.1"
   dependencies:
     "@digital-alchemy/fastify-extension": "npm:*"
     better-sqlite3: "npm:^11.0.0"
@@ -618,13 +639,13 @@ __metadata:
   dependenciesMeta:
     "@digital-alchemy/fastify-extension":
       optional: true
-  checksum: 10/d0de62b749438bfe48fd8ec59d7969ca8a52e007e67e33924c3e2fac5bf7eddd9e4d2e4c9a52a1a9b9c05293607e7ea532703131f00dac07601723f1e1c93552
+  checksum: 10/eb10a0c389fa2236bd9b6edb97dea56a9f254909665aa017c7be1e85fbce31994ab95cb7334cac42ba84c059d03241dd2b4a7b98db7ebbcdb9be00ae47153eeb
   languageName: node
   linkType: hard
 
-"@digital-alchemy/type-writer@npm:^24.6.6":
-  version: 24.6.6
-  resolution: "@digital-alchemy/type-writer@npm:24.6.6"
+"@digital-alchemy/type-writer@npm:^24.7.2":
+  version: 24.7.2
+  resolution: "@digital-alchemy/type-writer@npm:24.7.2"
   dependencies:
     js-yaml: "npm:^4.1.0"
     quicktype: "npm:^23.0.170"
@@ -635,7 +656,7 @@ __metadata:
     "@digital-alchemy/hass": "*"
   bin:
     type-writer: dist/main.js
-  checksum: 10/01c14ab08ac01d4bf93a4158645e6fc5df45f4ac88915e6cdfc361d7f2a8656baa3d43b2b48e4a531edfd3df29f8c1153760c45061a165b4f256bf6f276f952f
+  checksum: 10/618ec45c39596d509529f9c21a0479d3c4d42b3de2f31f6f771cfe2d7f42841626af103c177de55a7e1c566ec6c2b20b8d7df57414a6d3cba784767973bf831b
   languageName: node
   linkType: hard
 
@@ -3735,10 +3756,10 @@ __metadata:
   resolution: "home_automation@workspace:."
   dependencies:
     "@cspell/eslint-plugin": "npm:^8.7.0"
-    "@digital-alchemy/core": "npm:^24.6.6"
-    "@digital-alchemy/hass": "npm:^24.6.9"
-    "@digital-alchemy/synapse": "npm:^24.6.6"
-    "@digital-alchemy/type-writer": "npm:^24.6.6"
+    "@digital-alchemy/core": "npm:^24.7.1"
+    "@digital-alchemy/hass": "npm:^24.7.4"
+    "@digital-alchemy/synapse": "npm:^24.7.1"
+    "@digital-alchemy/type-writer": "npm:^24.7.2"
     "@types/async": "npm:^3.2.24"
     "@types/node": "npm:^20.12.7"
     "@typescript-eslint/eslint-plugin": "npm:7.6.0"
