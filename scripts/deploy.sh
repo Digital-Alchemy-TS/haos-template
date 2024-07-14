@@ -22,7 +22,7 @@ fi
 npx tsc -p tsconfig.deploy.json
 cp package.json ./deploy
 cd ./deploy || exit
-npm install
+yarn
 
 
 figlet -f "Pagga" "Complete" | npx lolcatjs
