@@ -26,29 +26,13 @@ This script will:
 
 ![img](./docs/addon.png)
 
-### ⚙️ Manual Configuration
-
-This project ships with 2 relevant configuration files in the project root.
-Most configurations have library provided defaults for most values, but [BASE_URL](https://docs.digital-alchemy.app/Home+Automation/Hass/config/BASE_URL) & [TOKEN](https://docs.digital-alchemy.app/Home+Automation/Hass/config/TOKEN) are required for establishing a basic connection
-
-1. [`.type_writer`](./.type_writer) - credentials for the `type-writer` script
-2. [`.home_automation`](./.home_automation) - credentials for your application
-
-If you are running the code within an addon, then the Home Assistant credentials **are not required**. Below is an example config in `ini` format
-
-```ini
-[hass]
-  TOKEN=LONG LIVED ACCESS TOKEN
-  BASE_URL=http://homeassistant.local:8123
-```
-
-> [Configuration](https://docs.digital-alchemy.app/Core/Configuration) system overview
-
 ## ⚒️ Workspace Management
 
 ### Supervised / HAOS
 
-The NodeJS environment within the Code Server addon does not survive reboots, and may occasionally need to be set up again. A script has been provided to restore your environment if something goes wrong.
+The NodeJS environment within the Code Server addon does not survive reboots, but a script has been provided to help fix that.
+Include `/config/home_automation/scripts/init.sh` (fix path if you use non-default) as an init_command in the **Configuration** tab of the Studio Code Server addon
+
 ```bash
 > ./scripts/environment.sh
 ```
