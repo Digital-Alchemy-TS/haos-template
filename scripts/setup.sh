@@ -121,46 +121,39 @@ do
   fi
 done
 
+yarn setup:addon
+
 echo -e "${GREEN}done${NC}"
 
 
 for arg in "$@"
 do
   if [ "$arg" = "--quick" ]; then
-    figlet -f "Pagga" "Success" | npx lolcatjs
     exit 0
   fi
 done
 
-
-echo
-echo -e "${BOLD_YELLOW}5.${NC} checking ${BOLD_CYAN}type-writer${NC} credentials"
-# pass a flag to the `hass` library asking it to validate credentials then quit.
-# overrides default functionality
-output=$(npx type-writer --validate_configuration 2>&1)
-
-# Check the output for specific patterns indicating success or failure
-if echo "$output" | grep -q "401: Unauthorized"; then
-  echo -e "${RED}"
-  figlet -f "Pagga" "Error"
-  echo -e "${NC}"
-  echo -e "Invalid ${BOLD_RED}TOKEN${NC}"
-  exit 1
-elif echo "$output" | grep -q "API running"; then
-  echo -e "${GREEN}valid${NC}"
-else
-  echo -e "${RED}"
-  figlet -f "Pagga" "Error"
-  echo -e "${NC}"
-  echo -e "invalid ${BOLD_RED}BASE_URL${NC} - ${BOLD_BLUE}script output${NC}"
-  echo
-  echo -e "${output}"
-  exit 1
-fi
-
 echo
 echo -e "${BOLD_YELLOW}6.${NC} rebuilding ${BOLD_CYAN}custom definitions${NC}"
 npx type-writer
+
 echo
-figlet -f "Pagga" "Success" | npx lolcatjs
+cd ..
+rm setup.sh
+
+echo
+echo -e "${BOLD_YELLOW}1.${NC} ${BOLD}write your code"
+echo -e "  ${BLUE}-${NC} ${BOLD_CYAN}src/main.ts${NC} is the application entry point"
+echo
+echo -e "${BOLD_YELLOW}2.${NC} ${BOLD}run code"
+echo -e "  ${BLUE}-${NC} ${BOLD_CYAN}yarn start${NC}"
+echo
+echo -e "${BOLD_YELLOW}3.${NC} ${BOLD}configure code server"
+echo -e "  ${BLUE}-${NC} add ${BOLD_CYAN}/config/${folder_name}/scripts/init.sh${NC} as an init_command"
+echo
+echo -e "${BOLD_YELLOW}4.${NC} ${BOLD}install addon"
+echo -e "  ${BLUE}-${NC} create builds of your code and run in the background"
+echo
+
+
 exit 0
