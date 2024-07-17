@@ -5,8 +5,8 @@ Welcome to the Digital Alchemy Starter Repo!
 This repository is designed to work with **Supervised** and **HA OS** based installs, where **Addons** are supported. See [installation documentation](https://www.home-assistant.io/installation/#advanced-installation-methods) for a comparison of different installation types. These instructions assume that [Studio Code Server Addon](https://github.com/hassio-addons/addon-vscode) has been installed, serving as both editor and workspace management tool.
 
 - 🗣️ Join [Discord](https://discord.gg/JkZ35Gv97Y)
-- 📖 More about the **Quickstart** project https://docs.digital-alchemy.app/Automation-Quickstart
-- 🤖 What next? https://blog.digital-alchemy.app/Next-Steps
+- 📖 More about the **Quickstart** project: [docs](https://docs.digital-alchemy.app/docs/home-automation/quickstart/automation-quickstart/)
+- 🤖 What next? [Next Steps](https://docs.digital-alchemy.app/docs/home-automation/quickstart/automation-quickstart/next-steps)
 
 ## 🚀 Setup
 
@@ -18,29 +18,18 @@ Within the **Code Server Addon**:
 ```bash
 curl -fsSL https://setup.digital-alchemy.app -o setup.sh; bash setup.sh
 ```
+
 This script will:
 - Install NodeJS on your system
 - Clone this repository
 - Install all necessary dependencies
 - Add the local code runner addon as a local addon
 
-![img](./docs/addon.png)
-
 ## ⚒️ Workspace Management
 
-### Supervised / HAOS
-
 The NodeJS environment within the Code Server addon does not survive reboots, but a script has been provided to help fix that.
-Include `/config/home_automation/scripts/init.sh` (fix path if you use non-default) as an init_command in the **Configuration** tab of the Studio Code Server addon
 
-```bash
-> ./scripts/environment.sh
-```
-> Also accessible as a task within VSCode as part of the workspace. Use `Tasks: Run Task` from the command palette to access
-
-### Other
-
-For **all other setups**, the instructions are roughly the same. `Node20`+ is required, [fnm](https://github.com/Schniz/fnm) can be used to install / manage version if you do not have it installed already.
+Include `/config/home_automation/scripts/init.sh` (fix path if you use non-default) as an `init_command` in the **Configuration** tab of the Studio Code Server addon
 
 ## 💻 Commands
 

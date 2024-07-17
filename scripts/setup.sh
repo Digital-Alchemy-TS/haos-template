@@ -14,14 +14,58 @@ BOLD_PURPLE='\033[1;35m'
 BOLD_CYAN='\033[1;36m'
 
 
-if [[ -n "$HASSIO_TOKEN" || -n "$SUPERVISOR_TOKEN" ]]; then
-  FNM_INSTALL_PATH="/config/.fnm"
-else
-  FNM_INSTALL_PATH="$HOME/.fnm"
-fi
-
+FNM_INSTALL_PATH="/config/.fnm"
 export PATH="./node_modules/figlet-cli/bin/:$FNM_INSTALL_PATH:$PATH"
 
+
+echo -e "${BOLD_GREEN}quick setup${NC}"
+default_folder_name="home_automation"
+
+valid=0
+while [ $valid -eq 0 ]; do
+  echo -e "Target folder (default: ${BLUE}${default_folder_name}${NC}): \c"
+  read -r -p "" folder_name
+  folder_name=${folder_name:-"$default_folder_name"}
+  folder_name=${folder_name//[-]/_}
+
+  # Check if the folder name starts with a letter or underscore and contains only letters, numbers, or underscores
+  if [[ $folder_name =~ ^[a-zA-Z_]+[a-zA-Z0-9_]*$ ]]; then
+    valid=1
+  else
+    echo "The folder name must start with a letter or underscore and contain only letters, numbers, or underscores."
+    echo "Please enter a valid folder name."
+  fi
+done
+
+wget -nv https://github.com/zoe-codez/automation-quickstart/archive/refs/heads/main.zip
+unzip -q main.zip
+# Either set up a new workspace, or update scripts/ based on repo
+if [ -d "$folder_name" ]; then
+  echo -e "${BOLD_YELLOW}Target already exists${NC}"
+  echo -e "Update ${CYAN}scripts/${NC} \c"
+  update_scripts=$(prompt_yes_no "")
+  if [[ "$update_scripts" =~ "y" ]]; then
+    cp automation-quickstart-main/scripts/* "$folder_name/scripts/"
+  fi
+  rm -r automation-quickstart-main
+else
+  mv automation-quickstart-main "$folder_name"
+fi
+rm main.zip
+
+cd "$folder_name" || exit
+
+# Customize the code based on the folder name!
+# Variable replacements in code
+if [ "$folder_name" != "$default_folder_name" ]; then
+  new_name=$(basename "$folder_name")
+
+  sed -i "s/home_automation/$new_name/g" package.json
+  sed -i "s/home_automation/$new_name/g" automation.code-workspace
+  sed -i "s/home_automation/$new_name/g" README.md
+  sed -i "s/home_automation/$new_name/g" ./addon/config.yaml
+  find ./src -type f -name "*.ts" -exec sed -i "s/home_automation/$new_name/g" {} \;
+fi
 
 
 echo -e "${BOLD_YELLOW}1.${NC} checking ${BOLD_CYAN}fnm${NC}"
@@ -65,6 +109,8 @@ fi
 
 echo
 echo -e "${BOLD_YELLOW}4.${NC} verifying ${BOLD_CYAN}node_modules${NC}"
+corepack enable && corepack prepare yarn@stable --activate
+
 yarn install
 
 for arg in "$@"
