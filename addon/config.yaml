@@ -1,6 +1,6 @@
 name: "Digital Alchemy"
 description: "Digital Alchemy deployment runner"
-version: "1.0.0"
+version: "24.7.1"
 slug: "digital_alchemy"
 init: false
 homeassistant_api: true
@@ -12,13 +12,13 @@ arch:
   - i386
 options:
   app_root: /config/home_automation
-  config_file: ""
+  env_file: ""
   mode: deploy
 
 schema:
   app_root: str
-  config_file: str
-  mode: list(deploy|run|watch)
+  env_file: str
+  mode: list(deploy|watch)
 
 map:
   - config:rw

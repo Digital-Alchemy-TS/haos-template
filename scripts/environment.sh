@@ -39,6 +39,7 @@ then
   eval "$(fnm env --shell=bash)"
 else
   echo -e "${GREEN}already loaded${NC}"
+  eval "$(fnm env --shell=bash)"
 fi
 
 echo
