@@ -20,6 +20,8 @@ bashio::log.info "Starting ${PACKAGE_NAME}..."
 # Determine run command based on mode
 case "${MODE}" in
   "deploy")
+    cd deploy || bashio::exit.nok "cannot cd deploy"
+    yarn
     if [ -n "$ENV_FILE" ]; then
         node --env-file "${ENV_FILE}" deploy/src/main.js
     else

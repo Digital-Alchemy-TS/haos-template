@@ -1,8 +1,8 @@
 {
   "name": "home_automation",
-  "version": "24.7.1",
+  "version": "24.7.2",
   "homepage": "https://docs.digital-alchemy.app/Automation-Quickstart",
-  "description": "A quick start demo workspace to building code with @digital-alchemy. Tuned for supervised Home Assistant installs",
+  "description": "Demonstration home automation project tuned for HAOS",
   "scripts": {
     "build:deploy": "./scripts/deploy.sh",
     "build": "tsc",
@@ -18,7 +18,9 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@digital-alchemy/automation": "^24.6.1",
     "@digital-alchemy/core": "^24.7.1",
+    "dayjs": "^1.11.10",
     "@digital-alchemy/hass": "^24.7.4",
     "@digital-alchemy/synapse": "^24.7.1"
   },

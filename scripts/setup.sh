@@ -144,15 +144,24 @@ rm setup.sh
 echo
 echo -e "${BOLD_YELLOW}1.${NC} ${BOLD}write your code"
 echo -e "  ${BLUE}-${NC} ${BOLD_CYAN}src/main.ts${NC} is the application entry point"
+echo -e "  ${BLUE}-${NC} demonstration project included (it has made up entities)"
 echo
 echo -e "${BOLD_YELLOW}2.${NC} ${BOLD}run code"
 echo -e "  ${BLUE}-${NC} ${BOLD_CYAN}yarn start${NC}"
+echo -e "  ${BLUE}-${NC} sends a hello world notification! (probably)"
 echo
 echo -e "${BOLD_YELLOW}3.${NC} ${BOLD}configure code server"
 echo -e "  ${BLUE}-${NC} add ${BOLD_CYAN}/config/${folder_name}/scripts/init.sh${NC} as an init_command"
+echo -e "  ${BLUE}-${NC} make sure workspace commands are usable after reboots"
 echo
 echo -e "${BOLD_YELLOW}4.${NC} ${BOLD}install addon"
 echo -e "  ${BLUE}-${NC} create builds of your code and run in the background"
+echo
+echo -e "${BOLD_YELLOW}5.${NC} ${BOLD}synapse-extension"
+echo -e "  ${BLUE}-${NC} add the integration via HACS to generate helper entities"
+echo
+echo -e "${BOLD_YELLOW}6.${NC} ${BOLD}syncthing?"
+echo -e "  ${BLUE}-${NC} use the syncthing addon to write code remotely with ease"
 echo
 
 

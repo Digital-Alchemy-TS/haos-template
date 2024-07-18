@@ -1,79 +1,56 @@
+import { LIB_AUTOMATION } from "@digital-alchemy/automation";
 import { CreateApplication } from "@digital-alchemy/core";
 import { LIB_HASS } from "@digital-alchemy/hass";
+import { LIB_SYNAPSE } from "@digital-alchemy/synapse";
+import dayjs from "dayjs";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+import isBetween from "dayjs/plugin/isBetween";
+import timezone from "dayjs/plugin/timezone";
+import utc from "dayjs/plugin/utc";
+import weekOfYear from "dayjs/plugin/weekOfYear";
 
-import { EntityList } from "./entity-list";
-import { HelperFile } from "./helper";
+import { Bedroom } from "./bedroom";
+import { Helpers } from "./helpers";
+import { LivingRoom } from "./living-room";
+import { Office } from "./office";
 
 const HOME_AUTOMATION = CreateApplication({
-  /**
-   * keep your secrets out of the code!
-   * these variables will be loaded from your configuration file
-   */
-  configuration: {
-    EXAMPLE_CONFIGURATION: {
-      default: "foo",
-      description: "A configuration defined as an example",
-      type: "string",
-    },
-  },
-
-  /**
-   * Adding to this array will provide additional elements in TServiceParams
-   * for your code to use
-   */
-  libraries: [
-    /**
-     * LIB_HASS provides basic interactions for Home Assistant
-     *
-     * Will automatically start websocket as part of bootstrap
-     */
-    LIB_HASS,
-  ],
-
-  /**
-   * must match key used in LoadedModules
-   * affects:
-   *  - import name in TServiceParams
-   *  - and files used for configuration
-   *  - log context
-   */
+  // Adding to this array will provide additional elements in TServiceParams for your code to use
+  // LIB_HASS - type safe home assistant interactions
+  // LIB_SYNAPSE - create helper entities (requires integration)
+  // LIB_AUTOMATION - extra helper utilities focused on home automation tasks (requires synapse)
+  libraries: [LIB_HASS, LIB_SYNAPSE, LIB_AUTOMATION],
   name: "home_automation",
 
-  /**
-   * Need a service to be loaded first? Add to this list
-   */
-  priorityInit: ["helper"],
+  // use this list to force certain services to load first
+  priorityInit: ["helpers"],
 
-  /**
-   * Add additional services here
-   * No guaranteed loading order unless added to priority list
-   *
-   * context: ServiceFunction
-   */
   services: {
-    entity_list: EntityList,
-    helper: HelperFile,
+    bedroom: Bedroom,
+    helpers: Helpers,
+    living_room: LivingRoom,
+    office: Office,
   },
 });
 
-// Load the type definitions
 declare module "@digital-alchemy/core" {
   export interface LoadedModules {
     home_automation: typeof HOME_AUTOMATION;
   }
 }
 
-// Kick off the application!
 setImmediate(
   async () =>
     await HOME_AUTOMATION.bootstrap({
-      /**
-       * override library defined defaults
-       * not a substitute for config files
-       */
       configuration: {
-        // default value: trace
         boilerplate: { LOG_LEVEL: "debug" },
       },
     }),
 );
+
+// utilities for dayjs
+dayjs.extend(weekOfYear);
+dayjs.extend(advancedFormat);
+dayjs.extend(isBetween);
+dayjs.extend(utc);
+dayjs.extend(timezone);

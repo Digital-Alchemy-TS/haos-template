@@ -21,8 +21,6 @@ fi
 # Create new code
 npx tsc -p tsconfig.deploy.json
 cp package.json ./deploy
-cd ./deploy || exit
-yarn
 
 
 figlet -f "Pagga" "Complete" | npx lolcatjs
