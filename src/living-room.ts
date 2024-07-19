@@ -1,7 +1,7 @@
 import { CronExpression, TServiceParams } from "@digital-alchemy/core";
 import dayjs from "dayjs";
 
-import { HOME_MODES } from "./helpers";
+import { AT_HOME_MODES } from "./helpers";
 
 export function LivingRoom({
   hass,
@@ -22,7 +22,7 @@ export function LivingRoom({
     eventName: "sunset",
     exec() {
       if (
-        HOME_MODES.has(houseMode.current_option) &&
+        AT_HOME_MODES.has(houseMode.current_option) &&
         projector.state === "off"
       ) {
         logger.info("pre-sunset lights on");

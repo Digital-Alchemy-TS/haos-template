@@ -9,7 +9,6 @@ import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
 import weekOfYear from "dayjs/plugin/weekOfYear";
 
-import { Bedroom } from "./bedroom";
 import { Helpers } from "./helpers";
 import { LivingRoom } from "./living-room";
 import { Office } from "./office";
@@ -26,7 +25,6 @@ const HOME_AUTOMATION = CreateApplication({
   priorityInit: ["helpers"],
 
   services: {
-    bedroom: Bedroom,
     helpers: Helpers,
     living_room: LivingRoom,
     office: Office,
