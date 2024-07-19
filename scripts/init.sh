@@ -15,7 +15,7 @@ then
 fi
 
 # load yarn
-full=$(realpath "$0")
-base=$(dirname "$full")
-cd "$base/.." || exit
-corepack enable
+FULL_PATH=$(realpath "$0")
+FILE_BASE=$(dirname "$FULL_PATH")
+cd "$FILE_BASE/.." || exit
+corepack enable && corepack prepare yarn@stable --activate

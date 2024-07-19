@@ -13,17 +13,31 @@ BOLD_BLUE='\033[1;34m'
 BOLD_PURPLE='\033[1;35m'
 BOLD_CYAN='\033[1;36m'
 
-
 FNM_INSTALL_PATH="/config/.fnm"
 export PATH="./node_modules/figlet-cli/bin/:$FNM_INSTALL_PATH:$PATH"
-
 
 echo -e "${BOLD_GREEN}quick setup${NC}"
 default_folder_name="home_automation"
 
+# check to see if home assistant is the correct version
+VERSION=$(curl -s http://supervisor/core/api/config -H "Authorization: Bearer ${HASSIO_TOKEN}" | jq .version)
+MAJOR=$(echo "$VERSION" | cut -d. -f1)
+MINOR=$(echo "$VERSION" | cut -d. -f2)
+
+if ((MAJOR < 2024 || (MAJOR == 2424 && MINOR < 4))); then
+  # 😢 big sad
+  # plz upgrade tho
+  # start off on the right foot
+  echo -e "${BOLD_RED}This version of Home Assistant is unsupported${NC}: ${BOLD_PURPLE}${VERSION}${NC}"
+  echo -e "${RED}Minumum supported version${NC}: ${BOLD_BLUE}2024.4${NC}"
+  exit 1
+fi
+
+echo -e "This version of hass is supported! 🎉"
+
 valid=0
 while [ $valid -eq 0 ]; do
-  echo -e "Target folder (default: ${BLUE}${default_folder_name}${NC}): \c"
+  echo -e "Install target (default: ${BLUE}${default_folder_name}${NC}): \c"
   read -r -p "" folder_name
   folder_name=${folder_name:-"$default_folder_name"}
   folder_name=${folder_name//[-]/_}
@@ -55,6 +69,7 @@ rm main.zip
 
 cd "$folder_name" || exit
 
+
 # Customize the code based on the folder name!
 # Variable replacements in code
 if [ "$folder_name" != "$default_folder_name" ]; then
@@ -67,11 +82,9 @@ if [ "$folder_name" != "$default_folder_name" ]; then
   find ./src -type f -name "*.ts" -exec sed -i "s/home_automation/$new_name/g" {} \;
 fi
 
-
 echo -e "${BOLD_YELLOW}1.${NC} checking ${BOLD_CYAN}fnm${NC}"
 # cannot find fnm command
-if ! command -v fnm &> /dev/null
-then
+if ! command -v fnm &>/dev/null; then
   # install if not exists
   if [ ! -d "$FNM_INSTALL_PATH" ]; then
     echo -e "${BOLD_PURPLE}fnm${NC} could not be found, installing..."
@@ -90,16 +103,15 @@ echo
 echo -e "${BOLD_YELLOW}2.${NC} checking ${BOLD_CYAN}zshenv${NC}"
 if [ ! -f ~/.zshenv ] || ! grep -q "fnm env" ~/.zshenv; then
   echo -e "writing changes to ${GREEN}~/.zshenv${NC}"
-  echo "export PATH=\"$FNM_INSTALL_PATH:\$PATH\"" >> ~/.zshenv
-  echo "eval \"\$(fnm env --shell=zsh)\"" >> ~/.zshenv
+  echo "export PATH=\"$FNM_INSTALL_PATH:\$PATH\"" >>~/.zshenv
+  echo "eval \"\$(fnm env --shell=zsh)\"" >>~/.zshenv
 else
   echo -e "${GREEN}already configured${NC}"
 fi
 
 echo
 echo -e "${BOLD_YELLOW}3.${NC} checking ${BOLD_CYAN}node${NC}"
-if ! node -v node &> /dev/null
-then
+if ! node -v node &>/dev/null; then
   echo -e "${BOLD_PURPLE}node${NC} could not be found, installing..."
   fnm install 20
   fnm default 20
@@ -112,26 +124,11 @@ echo -e "${BOLD_YELLOW}4.${NC} verifying ${BOLD_CYAN}node_modules${NC}"
 corepack enable && corepack prepare yarn@stable --activate
 
 yarn install
-
-for arg in "$@"
-do
-  if [ "$arg" = "--initial" ]; then
-    yarn up "@digital-alchemy/*"
-    yarn install
-  fi
-done
+yarn up "@digital-alchemy/*"
 
 yarn setup:addon
 
 echo -e "${GREEN}done${NC}"
-
-
-for arg in "$@"
-do
-  if [ "$arg" = "--quick" ]; then
-    exit 0
-  fi
-done
 
 echo
 echo -e "${BOLD_YELLOW}6.${NC} rebuilding ${BOLD_CYAN}custom definitions${NC}"
@@ -144,7 +141,7 @@ rm setup.sh
 echo
 echo -e "${BOLD_YELLOW}1.${NC} ${BOLD}write your code"
 echo -e "  ${BLUE}-${NC} ${BOLD_CYAN}src/main.ts${NC} is the application entry point"
-echo -e "  ${BLUE}-${NC} demonstration project included (it has made up entities)"
+echo -e "  ${BLUE}-${NC} demonstration project included (has made up entities)"
 echo
 echo -e "${BOLD_YELLOW}2.${NC} ${BOLD}run code"
 echo -e "  ${BLUE}-${NC} ${BOLD_CYAN}yarn start${NC}"
@@ -163,6 +160,5 @@ echo
 echo -e "${BOLD_YELLOW}6.${NC} ${BOLD}syncthing?"
 echo -e "  ${BLUE}-${NC} use the syncthing addon to write code remotely with ease"
 echo
-
 
 exit 0

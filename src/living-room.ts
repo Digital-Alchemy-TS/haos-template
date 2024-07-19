@@ -74,6 +74,7 @@ export function LivingRoom({
       }
       return;
     }
+
     const isDaytime = dayjs().isBetween(
       automation.solar.sunrise,
       automation.solar.sunset.subtract(30, "minute"),

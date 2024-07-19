@@ -20,8 +20,9 @@ bashio::log.info "Starting ${PACKAGE_NAME}..."
 # Determine run command based on mode
 case "${MODE}" in
   "deploy")
-    cd deploy || bashio::exit.nok "cannot cd deploy"
-    yarn
+    corepack enable && corepack prepare yarn@stable --activate
+    cd /data/digital_alchemy || bashio::exit.nok "cannot cd deploy"
+    yarn install
     if [ -n "$ENV_FILE" ]; then
         node --env-file "${ENV_FILE}" deploy/src/main.js
     else
