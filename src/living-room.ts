@@ -12,29 +12,25 @@ export function LivingRoom({
 }: TServiceParams) {
   const { houseMode } = home_automation.helpers;
   const projector = hass.refBy.id("switch.projector");
-
-  // this light turns on 30min before sunset
-  // turns off at 11pm
-  // additional logic based on house mode and projector state
   const fanLight = hass.refBy.id("light.living_room_fan");
 
+  // if the house mode says at home + not watching tv
+  // turn on lights 30m before sunset
   automation.solar.onEvent({
     eventName: "sunset",
     exec() {
-      if (
-        AT_HOME_MODES.has(houseMode.current_option) &&
-        projector.state === "off"
-      ) {
+      if (AT_HOME_MODES.has(houseMode.current_option) && projector.state === "off") {
         logger.info("pre-sunset lights on");
         fanLight.turn_on({ brightness: 125 });
       }
     },
-    // 30 mins before event
     offset: "-30m",
   });
 
+  // turn off the lights when it's late, unless there is guests
+  // want to handle manually then
   scheduler.cron({
-    exec: () => {
+    exec() {
       if (houseMode.current_option !== "guests") {
         fanLight.turn_off();
       }
@@ -55,20 +51,27 @@ export function LivingRoom({
 
       switch (houseMode.current_option) {
         case "guests": {
+          // leave off if currently off
           if (fanLight.state === "on") {
             fanLight.turn_on({ brightness: 50 });
           }
-          // leave off if currently off
           return;
         }
+
         case "normal": {
           fanLight.turn_off();
           return;
         }
+
+        // probably shouldn't be turning on lights, but projector should be off too 😅
         default: {
           hass.call.notify.notify({
-            message: "The projector turned on, but nobody is home",
-            title: "You got ghosts",
+            title: "Unexpected Projector Activation 👻📺",
+            message: [
+              "The system detected that your TV turned on while nobody was home.",
+              "While it could be a rare edge case or glitch, we cannot rule out the possibility of paranormal activity.",
+              "Please check your device settings and consider contacting a professional if the issue persists.",
+            ].join(" "),
           });
         }
       }

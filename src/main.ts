@@ -1,5 +1,5 @@
 import { LIB_AUTOMATION } from "@digital-alchemy/automation";
-import { CreateApplication } from "@digital-alchemy/core";
+import { CreateApplication, StringConfig } from "@digital-alchemy/core";
 import { LIB_HASS } from "@digital-alchemy/hass";
 import { LIB_SYNAPSE } from "@digital-alchemy/synapse";
 import dayjs from "dayjs";
@@ -14,6 +14,17 @@ import { LivingRoom } from "./living-room";
 import { Office } from "./office";
 
 const HOME_AUTOMATION = CreateApplication({
+  // Define configurations to be loaded
+  configuration: {
+    // config.home_automation.NODE_ENV
+    NODE_ENV: {
+      type: "string",
+      default: "development",
+      enum: ["development", "production", "test"],
+      description: "Code runner addon can set with it's own NODE_ENV",
+    } as StringConfig<AutomationEnvironments>,
+  },
+
   // Adding to this array will provide additional elements in TServiceParams for your code to use
   // LIB_HASS - type safe home assistant interactions
   // LIB_SYNAPSE - create helper entities (requires integration)
@@ -60,3 +71,4 @@ dayjs.extend(advancedFormat);
 dayjs.extend(isBetween);
 dayjs.extend(utc);
 dayjs.extend(timezone);
+type AutomationEnvironments = "development" | "production" | "test";

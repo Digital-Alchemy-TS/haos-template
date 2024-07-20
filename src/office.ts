@@ -7,17 +7,20 @@ export function Office({
   lifecycle,
   context,
   automation,
+  config,
 }: TServiceParams) {
   const { inMeeting } = home_automation.helpers;
 
+  // logic to run when everything is connected and good to go
   lifecycle.onReady(async () => {
+    const { NODE_ENV } = config.home_automation;
     await hass.call.notify.notify({
-      message: "Your application is running!",
+      message: `Your application is running in ${NODE_ENV}!`,
       title: "Hello world 🔮",
     });
   });
 
-  // got some complex logic for if the switch should be on
+  // got some complex logic for if the switch should be on?
   // define it in a function and let the system sort it out
   // will automatically send appropriate turn_on & turn_off calls to maintain state
   automation.managed_switch({
