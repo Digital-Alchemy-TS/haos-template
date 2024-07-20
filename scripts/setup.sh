@@ -125,22 +125,25 @@ cd ..
 rm setup.sh
 
 echo
+echo -e "${BOLD_YELLOW}0.${NC} ${BOLD}load nodejs for your current terminal"
+echo -e "  ${BLUE}-${NC} ${BOLD_CYAN}source ~/.zshenv${NC}"
+echo
 echo -e "${BOLD_YELLOW}1.${NC} ${BOLD}write your code"
 echo -e "  ${BLUE}-${NC} ${BOLD_CYAN}src/main.ts${NC} is the application entry point"
 echo -e "  ${BLUE}-${NC} demonstration project included (has made up entities)"
 echo
-echo -e "${BOLD_YELLOW}2.${NC} ${BOLD}run code"
+echo -e "${BOLD_YELLOW}2.${NC} ${BOLD}run dev server"
 echo -e "  ${BLUE}-${NC} ${BOLD_CYAN}yarn start${NC}"
 echo -e "  ${BLUE}-${NC} sends a hello world notification! (probably)"
 echo
-echo -e "${BOLD_YELLOW}3.${NC} ${BOLD}configure code server"
+echo -e "${BOLD_YELLOW}3.${NC} configure ${BOLD}Code Server"
 echo -e "  ${BLUE}-${NC} add ${BOLD_CYAN}/config/${folder_name}/scripts/init.sh${NC} as an init_command"
-echo -e "  ${BLUE}-${NC} make sure workspace commands are usable after reboots"
+echo -e "  ${BLUE}-${NC} ensure your workspace is immediately usable after reboots"
 echo
 echo -e "${BOLD_YELLOW}4.${NC} ${BOLD}install addon"
-echo -e "  ${BLUE}-${NC} create builds of your code and run in the background"
+echo -e "  ${BLUE}-${NC} install the Code Runner addon to run your stable builds in the background"
 echo
-echo -e "${BOLD_YELLOW}5.${NC} ${BOLD}synapse-extension"
+echo -e "${BOLD_YELLOW}5.${NC} ${BOLD}install synapse-extension"
 echo -e "  ${BLUE}-${NC} add the integration via HACS to generate helper entities"
 echo
 echo -e "${BOLD_YELLOW}6.${NC} ${BOLD}syncthing?"

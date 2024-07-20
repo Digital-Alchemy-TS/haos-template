@@ -14,22 +14,25 @@ Within the **Code Server Addon**:
 
 1. **Open a terminal**
    - Press **Ctrl-Shift-\`** (default keybind) to open a terminal, or go through `Menu` > `Terminal` > `New Terminal`.
-2. **Execute the command** ⌨
+2. **Execute the command**
+
 ```bash
 curl -fsSL https://setup.digital-alchemy.app -o setup.sh; bash setup.sh
 ```
 
-This script will:
+This command will:
+
+- Download [setup script](./scripts/setup.sh) & run it
 - Install NodeJS on your system
 - Clone this repository
-- Install all necessary dependencies
-- Add the local code runner addon as a local addon
+- Set up type definitions
+- Provide next steps
 
 ## ⚒️ Workspace Management
 
-The NodeJS environment within the Code Server addon does not survive reboots, but a script has been provided to help fix that.
+The NodeJS environment within **Code Server** does not survive reboots, the quickstart workspace
 
-Include `/config/home_automation/scripts/init.sh` (fix path if you use non-default) as an `init_command` in the **Configuration** tab of the Studio Code Server addon
+Include `/config/home_automation/scripts/init.sh` as an `init_command` in the **Configuration** tab of the Studio Code Server addon
 
 ## 💻 Commands
 
@@ -37,28 +40,15 @@ Once your environment is set up, you can use provided commands from within the `
 
 | NPM Command | Description |
 | ---- | ---- |
-| **`upgrade`** | ⏺️ Upgrade all `package.json` dependencies<br>**Automatically runs `type-writer` afterwards** |
-| **`develop`** | ⏩ Run the development server from within the `Code Server` addon<br>**Not intended for long term deployments!** |
-| **`develop:watch`** | 👀 Run the development server in watch mode from within the `Code Server` addon<br>**Automatically restart server on code changes** |
-| **`setup:addon`** | 🔁 Reinstall the code runner addon. <br>**Uses name in `package.json` to determine install path** |
-| **`build`** | 🔨 Create a build of your code in the `dist/` folder<br>**Reports all the errors in your workspace** |
-| **`build:deploy`** | 🏗️ Create a build of your code in the `deploy/` folder<br>**Addon has been set up to run from here** |
-| **`lint`** | 😱 Check your workspace for non-critical issues |
-| **`lint:fix`** | 🪛 Run `eslint --fix` to resolve minor issues |
+| **`upgrade`** | ⏺️ Upgrade all `@digital-alchemy` dependencies<br>**Automatically runs `type-writer` afterwards** |
+| **`develop`** | ⏩ Run the development server<br>**Not intended for long term deployments!** |
+| **`develop:watch`** | 👀 Run the development server<br>**Automatically restart server on code changes** |
+| **`build:deploy`** | 🏗️ Create a build of your code in the `/share/digital_alchemy/` folder<br>**Addon has been set up to run from here** |
 | **`type-writer`** | 🖨️ Rebuild custom type definitions for Home Assistant<br>**Run any time you modify your setup for more accurate definitions** |
 
+## 🧰 Extra Tools
 
-## 🤝 Related Projects
-
-| GitHub                                                                       | Description                                                          | NPM                                                                                     |
-| ---------------------------------------------------------------------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| (installed) [core](https://github.com/Digital-Alchemy-TS/core)               | Boilerplate services, configuration, logging, and more.              | [@digital-alchemy/core](https://www.npmjs.com/package/@digital-alchemy/core)           |
-| (installed) [hass](https://github.com/Digital-Alchemy-TS/hass)               | Websocket & rest adapters for Home Assistant.                        | [@digital-alchemy/hass](https://www.npmjs.com/package/@digital-alchemy/hass)           |
-| (installed) [type-writer](https://github.com/Digital-Alchemy-TS/type-writer)    | Generate custom type definitions from your Home Assistant install.   | [@digital-alchemy/type-writer](https://www.npmjs.com/package/@digital-alchemy/type-writer) |
-| (local) [code runner addon](./addon/README.md)                               | Detailed notes on usage of the `@digital-alchemy` code runner addon. |          **n/a**                                                                                |
-| [synapse](https://github.com/Digital-Alchemy-TS/synapse)                     | Tools for generating entities within Home Assistant.                 | [@digital-alchemy/synapse](https://www.npmjs.com/package/@digital-alchemy/synapse)     |
-| [synapse-extension](https://github.com/Digital-Alchemy-TS/synapse-extension) | Custom component counterpart for `@digital-alchemy/synapse`          |             **n/a**                                                                            |
-
-## 📄 License
-
-This project is licensed under the MIT License, as detailed in the [LICENSE](./LICENSE) file.
+- [Code Runner Addon](https://github.com/Digital-Alchemy-TS/addons/) - Create builds and run in the background
+- [Synapse Extension](https://github.com/Digital-Alchemy-TS/synapse-extension/) - Generate helper entities within Home Assistant
+- [Fastify](https://github.com/Digital-Alchemy-TS/fastify/) - Create rest endpoints for your application
+- [MQTT](https://github.com/Digital-Alchemy-TS/mqtt/) -

@@ -14,7 +14,7 @@ figlet -f "Elite" "Digital Alchemy" | npx lolcatjs
 figlet -f "Pagga" "Rollback Deploy" | npx lolcatjs
 
 BACKUP_ARCHIVE="/backup/da_previous_deploy.tar.gz"
-DATA_ROOT="/data/digital_alchemy"
+DATA_ROOT="/share/digital_alchemy"
 
 if [ ! -f "$BACKUP_ARCHIVE" ]; then
   echo -e "${BOLD_RED}Cannot find ${BACKUP_ARCHIVE}${NC}"

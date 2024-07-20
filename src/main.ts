@@ -18,12 +18,18 @@ const HOME_AUTOMATION = CreateApplication({
   // LIB_HASS - type safe home assistant interactions
   // LIB_SYNAPSE - create helper entities (requires integration)
   // LIB_AUTOMATION - extra helper utilities focused on home automation tasks (requires synapse)
+  // LIB_MQTT - listen & publish mqtt messages
+  // LIB_FASTIFY - http bindings
   libraries: [LIB_HASS, LIB_SYNAPSE, LIB_AUTOMATION],
+
+  // change with care!
   name: "home_automation",
 
   // use this list to force certain services to load first
   priorityInit: ["helpers"],
 
+  // add new services here
+  // keys affect how app is wired together & log contexts
   services: {
     helpers: Helpers,
     living_room: LivingRoom,
@@ -31,22 +37,24 @@ const HOME_AUTOMATION = CreateApplication({
   },
 });
 
+// Do some magic to make all the types work
 declare module "@digital-alchemy/core" {
   export interface LoadedModules {
     home_automation: typeof HOME_AUTOMATION;
   }
 }
 
+// bootstrap application
 setImmediate(
   async () =>
     await HOME_AUTOMATION.bootstrap({
       configuration: {
-        boilerplate: { LOG_LEVEL: "debug" },
+        boilerplate: { LOG_LEVEL: "info" },
       },
     }),
 );
 
-// utilities for dayjs
+// extra utilities for dayjs
 dayjs.extend(weekOfYear);
 dayjs.extend(advancedFormat);
 dayjs.extend(isBetween);

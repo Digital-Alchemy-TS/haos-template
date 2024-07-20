@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./deploy/src"
+    "outDir": "./deploy"
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "tmp", "dist", "src/**/*.spec.ts"]
