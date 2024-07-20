@@ -107,8 +107,6 @@ yarn up "@digital-alchemy/*"
 rm -rf node_modules yarn.lock
 yarn install
 
-yarn setup:addon
-
 echo -e "${GREEN}done${NC}"
 
 echo
