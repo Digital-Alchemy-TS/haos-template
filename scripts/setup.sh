@@ -39,13 +39,8 @@ wget -nv https://github.com/zoe-codez/automation-quickstart/archive/refs/heads/m
 unzip -q main.zip
 # Either set up a new workspace, or update scripts/ based on repo
 if [ -d "$folder_name" ]; then
-  echo -e "${BOLD_YELLOW}Target already exists${NC}"
-  echo -e "Update ${CYAN}scripts/${NC} \c"
-  update_scripts=$(prompt_yes_no "")
-  if [[ "$update_scripts" =~ "y" ]]; then
-    cp automation-quickstart-main/scripts/* "$folder_name/scripts/"
-  fi
-  rm -r automation-quickstart-main
+  echo -e "${BOLD_YELLOW}Target already exists, aborting${NC}"
+  exit
 else
   mv automation-quickstart-main "$folder_name"
 fi
