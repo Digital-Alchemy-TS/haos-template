@@ -22,7 +22,7 @@
     "@digital-alchemy/hass": "^24.7.6",
     "@digital-alchemy/mqtt-extension": "^24.7.1",
     "@digital-alchemy/synapse": "^24.7.2",
-    "dayjs": "^1.11.10"
+    "dayjs": "^1.11.12"
   },
   "devDependencies": {
     "@digital-alchemy/type-writer": "^24.7.2",
@@ -37,11 +37,11 @@
     "figlet-cli": "^0.1.1",
     "lolcatjs": "^2.4.3",
     "nodemon": "^3.1.4",
-    "prettier": "^3.2.5",
-    "tslib": "^2.6.2",
-    "tsx": "^4.7.2",
-    "type-fest": "^4.15.0",
-    "typescript": "^5.4.5"
+    "prettier": "^3.3.3",
+    "tslib": "^2.6.3",
+    "tsx": "^4.16.2",
+    "type-fest": "^4.22.1",
+    "typescript": "^5.5.3"
   },
   "packageManager": "yarn@4.3.1"
 }
