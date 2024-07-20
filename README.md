@@ -30,9 +30,11 @@ This command will:
 
 ## ⚒️ Workspace Management
 
-The NodeJS environment within **Code Server** does not survive reboots, the quickstart workspace
+In order to help **Code Server** to keep `node` installed, you need to add a the following script as an `init_command` in the **Configuration** tab.
 
-Include `/config/home_automation/scripts/init.sh` as an `init_command` in the **Configuration** tab of the Studio Code Server addon
+```bash
+config/home_automation/scripts/init.sh
+```
 
 ![ui location](/docs/init_command.png)
 
