@@ -51,4 +51,4 @@ Once your environment is set up, you can use provided commands from within the `
 - [Code Runner Addon](https://github.com/Digital-Alchemy-TS/addons/) - Create builds and run in the background
 - [Synapse Extension](https://github.com/Digital-Alchemy-TS/synapse-extension/) - Generate helper entities within Home Assistant
 - [Fastify](https://github.com/Digital-Alchemy-TS/fastify/) - Create rest endpoints for your application
-- [MQTT](https://github.com/Digital-Alchemy-TS/mqtt/) - PQTT publish and subscribe functionality
+- [MQTT](https://github.com/Digital-Alchemy-TS/mqtt/) - MQTT publish and subscribe functionality
