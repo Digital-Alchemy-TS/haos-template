@@ -22,8 +22,8 @@ if [ ! -f "$BACKUP_ARCHIVE" ]; then
 fi
 
 echo -e "${BOLD_BLUE}This script will${NC}":
-echo -e " ${YELLOW}-${NC} Remove the existing ${CYAN}deploy${CYAN} folder"
-echo -e " ${YELLOW}-${NC} Restore the previous ${CYAN}deploy${CYAN} folder"
+echo -e " ${YELLOW}-${NC} Remove the existing ${CYAN}$DATA_ROOT${CYAN} folder"
+echo -e " ${YELLOW}-${NC} Restore the previous ${CYAN}$DATA_ROOT${CYAN} folder"
 
 echo -e "In 5"
 sleep 1

@@ -13,7 +13,7 @@ This repository is designed to work with **Supervised** and **HA OS** based inst
 Within the **Code Server Addon**:
 
 1. **Open a terminal**
-   - Press **Ctrl-Shift-\`** (default keybind) to open a terminal, or go through `Menu` > `Terminal` > `New Terminal`.
+  - Press **Ctrl-Shift-\`** (default keybind) to open a terminal, or go through `Menu` > `Terminal` > `New Terminal`.
 2. **Execute the command**
 
 ```bash
@@ -33,6 +33,8 @@ This command will:
 The NodeJS environment within **Code Server** does not survive reboots, the quickstart workspace
 
 Include `/config/home_automation/scripts/init.sh` as an `init_command` in the **Configuration** tab of the Studio Code Server addon
+
+![ui location](/docs/init_command.png)
 
 ## 💻 Commands
 
