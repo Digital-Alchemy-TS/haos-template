@@ -109,6 +109,8 @@ corepack enable && corepack prepare yarn@stable --activate
 
 yarn install
 yarn up "@digital-alchemy/*"
+rm -rf node_modules yarn.lock
+yarn install
 
 yarn setup:addon
 
