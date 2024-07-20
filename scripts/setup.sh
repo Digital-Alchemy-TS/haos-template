@@ -19,22 +19,6 @@ export PATH="./node_modules/figlet-cli/bin/:$FNM_INSTALL_PATH:$PATH"
 echo -e "${BOLD_GREEN}quick setup${NC}"
 default_folder_name="home_automation"
 
-# check to see if home assistant is the correct version
-VERSION=$(curl -s http://supervisor/core/api/config -H "Authorization: Bearer ${HASSIO_TOKEN}" | jq .version)
-MAJOR=$(echo "$VERSION" | cut -d. -f1)
-MINOR=$(echo "$VERSION" | cut -d. -f2)
-
-if [[ "$MAJOR" -lt 2024 || ( "$MAJOR" -eq 2024 && "$MINOR" -lt 4 ) ]]; then
-  # 😢 big sad
-  # plz upgrade tho
-  # start off on the right foot
-  echo -e "${BOLD_RED}This version of Home Assistant is unsupported${NC}: ${BOLD_PURPLE}${VERSION}${NC}"
-  echo -e "${RED}Minimum supported version${NC}: ${BOLD_BLUE}2024.4${NC}"
-  exit 1
-fi
-
-echo -e "This version of hass is supported! 🎉"
-
 valid=0
 while [ $valid -eq 0 ]; do
   echo -e "Install target (default: ${BLUE}${default_folder_name}${NC}): \c"
