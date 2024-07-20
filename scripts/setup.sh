@@ -24,12 +24,12 @@ VERSION=$(curl -s http://supervisor/core/api/config -H "Authorization: Bearer ${
 MAJOR=$(echo "$VERSION" | cut -d. -f1)
 MINOR=$(echo "$VERSION" | cut -d. -f2)
 
-if ((MAJOR < 2024 || (MAJOR == 2424 && MINOR < 4))); then
+if [[ "$MAJOR" -lt 2024 || ( "$MAJOR" -eq 2024 && "$MINOR" -lt 4 ) ]]; then
   # 😢 big sad
   # plz upgrade tho
   # start off on the right foot
   echo -e "${BOLD_RED}This version of Home Assistant is unsupported${NC}: ${BOLD_PURPLE}${VERSION}${NC}"
-  echo -e "${RED}Minumum supported version${NC}: ${BOLD_BLUE}2024.4${NC}"
+  echo -e "${RED}Minimum supported version${NC}: ${BOLD_BLUE}2024.4${NC}"
   exit 1
 fi
 
