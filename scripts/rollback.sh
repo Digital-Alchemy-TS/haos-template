@@ -24,24 +24,33 @@ fi
 echo -e "${BOLD_BLUE}This script will${NC}":
 echo -e " ${YELLOW}-${NC} Remove the existing ${CYAN}$DATA_ROOT${NC} folder"
 echo -e " ${YELLOW}-${NC} Restore the previous ${CYAN}$DATA_ROOT${NC} folder"
+echo
+echo -e "Press ${BOLD_BLUE}ctrl-c${NC} to cancel"
+echo
 
-echo -e "${BOLD_GREEN}In 5${NC}"
+
+echo -e "${BOLD_GREEN}5 💣💣💣💣💣${NC}"
 sleep 1
-echo -e "${YELLOW}4${NC}"
+echo -e "${YELLOW}4 💣💣💣💣${NC}"
 sleep 1
-echo -e "${YELLOW}3${NC}"
+echo -e "${YELLOW}3 💣💣💣${NC}"
 sleep 1
-echo -e "${RED}2${NC}"
+echo -e "${BOLD_RED}2 💣💣${NC}"
 sleep 1
-echo -e "${RED}1${NC}"
+echo -e "${BOLD_RED}1 💣${NC}"
 sleep 1
 
 if [ -d "$DATA_ROOT" ]; then
-  echo -e "💣 Removing current deploy"
+  echo -e "💥 Removing current deploy"
   rm -r $DATA_ROOT
 fi
 
 echo "🥱 Restoring previous archive"
+mkdir "$DATA_ROOT"
+pushd "$DATA_ROOT" > /dev/null || exit
 tar xzvf "$BACKUP_ARCHIVE"
+echo
+popd > /dev/null || exit
+echo
 
 figlet -f "Pagga" "Done" | npx lolcatjs
