@@ -8,7 +8,7 @@ CYAN='\033[0;36m'
 # Bold
 BOLD_RED='\033[1;31m'
 BOLD_BLUE='\033[1;34m'
-
+BOLD_GREEN='\033[1;32m'
 
 figlet -f "Elite" "Digital Alchemy" | npx lolcatjs
 figlet -f "Pagga" "Rollback Deploy" | npx lolcatjs
@@ -22,10 +22,10 @@ if [ ! -f "$BACKUP_ARCHIVE" ]; then
 fi
 
 echo -e "${BOLD_BLUE}This script will${NC}":
-echo -e " ${YELLOW}-${NC} Remove the existing ${CYAN}$DATA_ROOT${CYAN} folder"
-echo -e " ${YELLOW}-${NC} Restore the previous ${CYAN}$DATA_ROOT${CYAN} folder"
+echo -e " ${YELLOW}-${NC} Remove the existing ${CYAN}$DATA_ROOT${NC} folder"
+echo -e " ${YELLOW}-${NC} Restore the previous ${CYAN}$DATA_ROOT${NC} folder"
 
-echo -e "In 5"
+echo -e "${BOLD_GREEN}In 5${NC}"
 sleep 1
 echo -e "${YELLOW}4${NC}"
 sleep 1
@@ -41,7 +41,7 @@ if [ -d "$DATA_ROOT" ]; then
   rm -r $DATA_ROOT
 fi
 
+echo "🥱 Restoring previous archive"
 tar xzvf "$BACKUP_ARCHIVE"
-echo "🥱"
 
 figlet -f "Pagga" "Done" | npx lolcatjs
