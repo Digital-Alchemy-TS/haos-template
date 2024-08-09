@@ -36,7 +36,7 @@ In order to help **Code Server** to keep `node` installed, you need to add a the
 config/home_automation/scripts/init.sh
 ```
 
-![ui location](/docs/init_command.png)
+![ui location](https://docs.digital-alchemy.app/assets/images/init_command-006a565b7b07725ae1916391b89b10ae.png)
 
 ## 💻 Commands
 

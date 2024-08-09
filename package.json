@@ -5,6 +5,7 @@
   "description": "Demonstration home automation project tuned for HAOS",
   "scripts": {
     "build:deploy": "./scripts/deploy.sh",
+    "build:check": "tsc --skipLibCheck --noEmit",
     "build": "tsc",
     "start:watch": "nodemon --exec tsx src/main.ts",
     "start": "tsx src/main.ts",
@@ -19,7 +20,7 @@
     "@digital-alchemy/automation": "^24.7.1",
     "@digital-alchemy/core": "^24.7.2",
     "@digital-alchemy/fastify-extension": "^24.7.1",
-    "@digital-alchemy/hass": "^24.7.6",
+    "@digital-alchemy/hass": "^24.8.1",
     "@digital-alchemy/mqtt-extension": "^24.7.1",
     "@digital-alchemy/synapse": "^24.7.2",
     "dayjs": "^1.11.12"
@@ -43,5 +44,5 @@
     "type-fest": "^4.22.1",
     "typescript": "^5.5.3"
   },
-  "packageManager": "yarn@4.3.1"
+  "packageManager": "yarn@4.4.0"
 }
