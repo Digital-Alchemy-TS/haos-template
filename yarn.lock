@@ -133,9 +133,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@digital-alchemy/synapse@npm:^24.7.2":
-  version: 24.7.2
-  resolution: "@digital-alchemy/synapse@npm:24.7.2"
+"@digital-alchemy/synapse@npm:^24.8.1":
+  version: 24.8.1
+  resolution: "@digital-alchemy/synapse@npm:24.8.1"
   dependencies:
     "@digital-alchemy/fastify-extension": "npm:*"
     better-sqlite3: "npm:^11.0.0"
@@ -147,7 +147,7 @@ __metadata:
   dependenciesMeta:
     "@digital-alchemy/fastify-extension":
       optional: true
-  checksum: 10/2ee412ee081d21b4db1501e3c7d71302f04b1b1a7cc6102e5151376eb8811d487a833be6d01f7e4c459c12f2e960fe4fe251298b86194dfb463ad50ec0f525d1
+  checksum: 10/df0957537cdede94bca0bdeb0d83de4e856ed5205958302ace41baf55f0fa5e3fb442d95a7fe433b6fde7e73ede97cb3350463603890e19ff422614980c6b2b1
   languageName: node
   linkType: hard
 
@@ -3056,7 +3056,7 @@ __metadata:
     "@digital-alchemy/fastify-extension": "npm:^24.7.1"
     "@digital-alchemy/hass": "npm:^24.8.1"
     "@digital-alchemy/mqtt-extension": "npm:^24.7.1"
-    "@digital-alchemy/synapse": "npm:^24.7.2"
+    "@digital-alchemy/synapse": "npm:^24.8.1"
     "@digital-alchemy/type-writer": "npm:^24.7.2"
     "@types/node": "npm:^20.12.7"
     "@typescript-eslint/eslint-plugin": "npm:7.6.0"
@@ -3068,6 +3068,7 @@ __metadata:
     eslint-plugin-prettier: "npm:^5.1.3"
     eslint-plugin-unicorn: "npm:^52.0.0"
     figlet-cli: "npm:^0.1.1"
+    husky: "npm:^9.1.4"
     lolcatjs: "npm:^2.4.3"
     nodemon: "npm:^3.1.4"
     prettier: "npm:^3.3.3"
@@ -3109,6 +3110,15 @@ __metadata:
     agent-base: "npm:^7.0.2"
     debug: "npm:4"
   checksum: 10/6679d46159ab3f9a5509ee80c3a3fc83fba3a920a5e18d32176c3327852c3c00ad640c0c4210a8fd70ea3c4a6d3a1b375bf01942516e7df80e2646bdc77658ab
+  languageName: node
+  linkType: hard
+
+"husky@npm:^9.1.4":
+  version: 9.1.4
+  resolution: "husky@npm:9.1.4"
+  bin:
+    husky: bin.js
+  checksum: 10/c43aa7cbf98246d4f347bc3da807049555b5003af7c6e1658c5cea44a9743b4d0683c72973a4fe02a4ccceb81031a664ecaa7a1a86efe4d37a80a0af17c988ea
   languageName: node
   linkType: hard
 
