@@ -1,7 +1,7 @@
 {
   "name": "home_automation",
   "version": "24.7.3",
-  "homepage": "https://docs.digital-alchemy.app/Automation-Quickstart",
+  "homepage": "https://docs.digital-alchemy.app",
   "description": "Demonstration home automation project tuned for HAOS",
   "scripts": {
     "build:deploy": "./scripts/deploy.sh",

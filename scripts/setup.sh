@@ -35,14 +35,14 @@ while [ $valid -eq 0 ]; do
   fi
 done
 
-wget -nv https://github.com/zoe-codez/automation-quickstart/archive/refs/heads/main.zip
+wget -nv https://github.com/zoe-codez/haos-template/archive/refs/heads/main.zip
 unzip -q main.zip
 # Either set up a new workspace, or update scripts/ based on repo
 if [ -d "$folder_name" ]; then
   echo -e "${BOLD_YELLOW}Target already exists, aborting${NC}"
   exit
 else
-  mv automation-quickstart-main "$folder_name"
+  mv haos-template-main "$folder_name"
 fi
 rm main.zip
 
