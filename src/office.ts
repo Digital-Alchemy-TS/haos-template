@@ -1,23 +1,14 @@
 import { TServiceParams } from "@digital-alchemy/core";
 import dayjs from "dayjs";
 
-export function Office({
-  hass,
-  home_automation,
-  lifecycle,
-  context,
-  automation,
-  config,
-}: TServiceParams) {
+export function Office({ hass, home_automation, context, automation, config }: TServiceParams) {
   const { inMeeting } = home_automation.helpers;
 
   // logic to run when everything is connected and good to go
-  lifecycle.onReady(async () => {
-    const { NODE_ENV } = config.home_automation;
-    await hass.call.notify.notify({
-      message: `Your application is running in ${NODE_ENV}!`,
-      title: "Hello world 🔮",
-    });
+  const { NODE_ENV } = config.home_automation;
+  hass.call.notify.notify({
+    message: `Your application is running in ${NODE_ENV}!`,
+    title: "Hello world 🔮",
   });
 
   // got some complex logic for if the switch should be on?

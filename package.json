@@ -18,8 +18,8 @@
   "license": "MIT",
   "dependencies": {
     "@digital-alchemy/automation": "^24.7.1",
-    "@digital-alchemy/core": "^24.7.2",
-    "@digital-alchemy/fastify-extension": "^24.7.1",
+    "@digital-alchemy/core": "^24.8.1",
+    "@digital-alchemy/fastify-extension": "^24.8.1",
     "@digital-alchemy/hass": "^24.8.1",
     "@digital-alchemy/mqtt-extension": "^24.7.1",
     "@digital-alchemy/synapse": "^24.8.1",

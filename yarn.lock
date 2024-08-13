@@ -66,9 +66,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@digital-alchemy/core@npm:^24.7.2":
-  version: 24.7.2
-  resolution: "@digital-alchemy/core@npm:24.7.2"
+"@digital-alchemy/core@npm:^24.8.1":
+  version: 24.8.1
+  resolution: "@digital-alchemy/core@npm:24.8.1"
   dependencies:
     chalk: "npm:^5.3.0"
     dayjs: "npm:^1.11.11"
@@ -83,11 +83,11 @@ __metadata:
   dependenciesMeta:
     redis:
       optional: true
-  checksum: 10/d45c39883df79ed85e1245bce833db9147d8749282e985ab0258e77989e2cf1dd6ebe62a6f8e2018ba1c5d9890b60bf03515a4d8f0b220229185a4790cbde9db
+  checksum: 10/e8d9242039e4b0109cbb92e72fd640cc1db0a0b2969bac7e95fa93963f74797ba7926645b7ef0f6a8edfb7776faa05847615e58f8639e0dbeba450a971c13dc2
   languageName: node
   linkType: hard
 
-"@digital-alchemy/fastify-extension@npm:*, @digital-alchemy/fastify-extension@npm:^24.7.1":
+"@digital-alchemy/fastify-extension@npm:*":
   version: 24.7.1
   resolution: "@digital-alchemy/fastify-extension@npm:24.7.1"
   dependencies:
@@ -100,6 +100,22 @@ __metadata:
   peerDependencies:
     "@digital-alchemy/core": "*"
   checksum: 10/1dd3cb2bbb272ed5832cc0540343f29534b7aa4cdf6462a8421ebd467bed9454094b97a20f4dfe93a8bc0f554b5f71b8090eb59dac0ba1281ebb6baae1043879
+  languageName: node
+  linkType: hard
+
+"@digital-alchemy/fastify-extension@npm:^24.8.1":
+  version: 24.8.1
+  resolution: "@digital-alchemy/fastify-extension@npm:24.8.1"
+  dependencies:
+    "@fastify/auth": "npm:^4.6.1"
+    "@fastify/basic-auth": "npm:^5.1.1"
+    "@fastify/jwt": "npm:^8.0.0"
+    dayjs: "npm:^1.11.10"
+    fastify: "npm:^4.26.2"
+    prom-client: "npm:^15.1.1"
+  peerDependencies:
+    "@digital-alchemy/core": "*"
+  checksum: 10/251d887b10ff6758396eb89ebb4c27ac465085a7b0e3b25688cb134c7c7c4819d2a962f89beaa6247094bace394a08190086cc0d7fb5ede6dc6d55bee6cf87dc
   languageName: node
   linkType: hard
 
@@ -3052,8 +3068,8 @@ __metadata:
   resolution: "home_automation@workspace:."
   dependencies:
     "@digital-alchemy/automation": "npm:^24.7.1"
-    "@digital-alchemy/core": "npm:^24.7.2"
-    "@digital-alchemy/fastify-extension": "npm:^24.7.1"
+    "@digital-alchemy/core": "npm:^24.8.1"
+    "@digital-alchemy/fastify-extension": "npm:^24.8.1"
     "@digital-alchemy/hass": "npm:^24.8.1"
     "@digital-alchemy/mqtt-extension": "npm:^24.7.1"
     "@digital-alchemy/synapse": "npm:^24.8.1"
