@@ -22,7 +22,7 @@ const HOME_AUTOMATION = CreateApplication({
       default: "development",
       enum: ["development", "production", "test"],
       description: "Code runner addon can set with it's own NODE_ENV",
-    } as StringConfig<AutomationEnvironments>,
+    } satisfies StringConfig<AutomationEnvironments>,
   },
 
   // Adding to this array will provide additional elements in TServiceParams for your code to use
