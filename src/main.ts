@@ -1,61 +1,56 @@
+import "./utils";
+
 import { LIB_AUTOMATION } from "@digital-alchemy/automation";
 import { CreateApplication, StringConfig } from "@digital-alchemy/core";
 import { LIB_HASS } from "@digital-alchemy/hass";
 import { LIB_SYNAPSE } from "@digital-alchemy/synapse";
-import dayjs from "dayjs";
-import advancedFormat from "dayjs/plugin/advancedFormat";
-import isBetween from "dayjs/plugin/isBetween";
-import timezone from "dayjs/plugin/timezone";
-import utc from "dayjs/plugin/utc";
-import weekOfYear from "dayjs/plugin/weekOfYear";
+import { HelloWorld } from "./hello-world";
 
-import { Helpers } from "./helpers";
-import { LivingRoom } from "./living-room";
-import { Office } from "./office";
+type Environments = "development" | "production" | "test";
 
 const HOME_AUTOMATION = CreateApplication({
   // Define configurations to be loaded
+  //
+  // https://docs.digital-alchemy.app/docs/core/configuration
   configuration: {
-    // config.home_automation.NODE_ENV
     NODE_ENV: {
       type: "string",
       default: "development",
       enum: ["development", "production", "test"],
       description: "Code runner addon can set with it's own NODE_ENV",
-    } satisfies StringConfig<AutomationEnvironments>,
+    } satisfies StringConfig<Environments>,
   },
 
   // Adding to this array will provide additional elements in TServiceParams for your code to use
-  // LIB_HASS - type safe home assistant interactions
-  // LIB_SYNAPSE - create helper entities (requires integration)
-  // LIB_AUTOMATION - extra helper utilities focused on home automation tasks (requires synapse)
-  // LIB_MQTT - listen & publish mqtt messages
-  // LIB_FASTIFY - http bindings
+  //
+  // - LIB_HASS - type safe home assistant interactions
+  // - LIB_SYNAPSE - create helper entities (requires integration)
+  // - LIB_AUTOMATION - extra helper utilities focused on home automation tasks (requires synapse)
+  // - LIB_MQTT - listen & publish mqtt messages
+  // - LIB_FASTIFY - http bindings
   libraries: [LIB_HASS, LIB_SYNAPSE, LIB_AUTOMATION],
 
-  // change with care!
   name: "home_automation",
 
   // use this list to force certain services to load first
-  priorityInit: ["helpers"],
+  priorityInit: [],
 
   // add new services here
   // keys affect how app is wired together & log contexts
+  //
+  // https://docs.digital-alchemy.app/docs/core/wiring
   services: {
-    helpers: Helpers,
-    living_room: LivingRoom,
-    office: Office,
+    hello_world: HelloWorld,
   },
 });
 
-// Do some magic to make all the types work
+// add your app to the global modules list
 declare module "@digital-alchemy/core" {
   export interface LoadedModules {
     home_automation: typeof HOME_AUTOMATION;
   }
 }
 
-// bootstrap application
 setImmediate(
   async () =>
     await HOME_AUTOMATION.bootstrap({
@@ -65,11 +60,3 @@ setImmediate(
       },
     }),
 );
-
-// extra utilities for dayjs
-dayjs.extend(weekOfYear);
-dayjs.extend(advancedFormat);
-dayjs.extend(isBetween);
-dayjs.extend(utc);
-dayjs.extend(timezone);
-type AutomationEnvironments = "development" | "production" | "test";

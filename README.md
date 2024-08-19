@@ -1,4 +1,4 @@
-# HAOS Starter Repo 🏡💻
+# HAOS Template Repo 🏡💻
 
 Welcome to the Digital Alchemy Starter Repo!
 
