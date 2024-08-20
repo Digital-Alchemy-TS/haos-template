@@ -19,6 +19,8 @@ export PATH="./node_modules/figlet-cli/bin/:$FNM_INSTALL_PATH:$PATH"
 echo -e "${BOLD_GREEN}quick setup${NC}"
 default_folder_name="home_automation"
 
+cd /config || exit 1
+
 valid=0
 while [ $valid -eq 0 ]; do
   echo -e "Install target (default: ${BLUE}${default_folder_name}${NC}): \c"
