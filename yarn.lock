@@ -131,9 +131,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@digital-alchemy/type-writer@npm:^24.9.2":
-  version: 24.9.2
-  resolution: "@digital-alchemy/type-writer@npm:24.9.2"
+"@digital-alchemy/type-writer@npm:^24.9.6":
+  version: 24.9.6
+  resolution: "@digital-alchemy/type-writer@npm:24.9.6"
   dependencies:
     js-yaml: "npm:^4.1.0"
     quicktype: "npm:^23.0.170"
@@ -143,8 +143,8 @@ __metadata:
     "@digital-alchemy/core": "*"
     "@digital-alchemy/hass": "*"
   bin:
-    type-writer: dist/main.js
-  checksum: 10/0616878c1b0963a34fe0190fe60a95da4f7fb74923a2aa008050531ab2515ba6bb328bbd9c8ccb0a00a73743d66f64d20f78ecf3cc75bc83ed9eca03f1d6d80b
+    type-writer: scripts/run.sh
+  checksum: 10/5392b89579bb363aced2105de489cb7fda552bc2abac693e29161c58d6eecfcb9f69c966f8cd96cc025b935fd705032fad1f96b6b5134f765781edbc036abcf9
   languageName: node
   linkType: hard
 
@@ -2491,7 +2491,7 @@ __metadata:
     "@digital-alchemy/hass": "npm:^24.9.4"
     "@digital-alchemy/mqtt-extension": "npm:^24.9.1"
     "@digital-alchemy/synapse": "npm:^24.9.4"
-    "@digital-alchemy/type-writer": "npm:^24.9.2"
+    "@digital-alchemy/type-writer": "npm:^24.9.6"
     "@eslint/compat": "npm:^1.1.1"
     "@eslint/eslintrc": "npm:^3.1.0"
     "@eslint/js": "npm:^9.11.1"
@@ -2510,6 +2510,7 @@ __metadata:
     figlet-cli: "npm:^0.1.1"
     globals: "npm:^15.9.0"
     husky: "npm:^9.1.6"
+    ini: "npm:^5.0.0"
     lolcatjs: "npm:^2.4.3"
     node-cron: "npm:^3.0.3"
     nodemon: "npm:^3.1.7"
@@ -2633,6 +2634,13 @@ __metadata:
   version: 2.0.4
   resolution: "inherits@npm:2.0.4"
   checksum: 10/cd45e923bee15186c07fa4c89db0aace24824c482fb887b528304694b2aa6ff8a898da8657046a5dcf3e46cd6db6c61629551f9215f208d7c3f157cf9b290521
+  languageName: node
+  linkType: hard
+
+"ini@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "ini@npm:5.0.0"
+  checksum: 10/76e5567b46504b2b12650878ba6277204500a6ead3fe69eef419ee570456b364b39c040ee545846053f6d8a15797a82fc6d9efe06e392b9b6093935f4a2f2c30
   languageName: node
   linkType: hard
 

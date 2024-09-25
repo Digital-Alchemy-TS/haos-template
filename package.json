@@ -12,7 +12,7 @@
     "format": "eslint --fix src/",
     "lint": "eslint src/",
     "rollback": "./scripts/rollback.sh",
-    "type-writer": "type-writer",
+    "type-writer": "npx type-writer",
     "upgrade": "./scripts/update_deps.sh",
     "prepare": "husky install"
   },
@@ -26,11 +26,12 @@
     "@digital-alchemy/synapse": "^24.9.4",
     "dayjs": "^1.11.13",
     "dotenv": "^16.4.5",
+    "ini": "^5.0.0",
     "node-cron": "^3.0.3",
     "ws": "^8.18.0"
   },
   "devDependencies": {
-    "@digital-alchemy/type-writer": "^24.9.2",
+    "@digital-alchemy/type-writer": "^24.9.6",
     "@eslint/compat": "^1.1.1",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.11.1",
