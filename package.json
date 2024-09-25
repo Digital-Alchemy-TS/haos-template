@@ -24,7 +24,10 @@
     "@digital-alchemy/hass": "^24.9.4",
     "@digital-alchemy/mqtt-extension": "^24.9.1",
     "@digital-alchemy/synapse": "^24.9.4",
-    "dayjs": "^1.11.13"
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.5",
+    "node-cron": "^3.0.3",
+    "ws": "^8.18.0"
   },
   "devDependencies": {
     "@digital-alchemy/type-writer": "^24.9.2",
@@ -32,6 +35,8 @@
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.11.1",
     "@types/node": "^22.7.0",
+    "@types/node-cron": "^3",
+    "@types/ws": "^8",
     "@typescript-eslint/eslint-plugin": "8.7.0",
     "@typescript-eslint/parser": "8.7.0",
     "eslint": "9.11.1",
