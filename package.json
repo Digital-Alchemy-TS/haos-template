@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "home_automation",
-  "version": "24.7.3",
+  "version": "24.9.1",
   "homepage": "https://docs.digital-alchemy.app",
   "description": "Demonstration home automation project tuned for HAOS",
   "scripts": {
@@ -18,23 +18,23 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@digital-alchemy/automation": "^24.9.2",
-    "@digital-alchemy/core": "^24.8.4",
-    "@digital-alchemy/fastify-extension": "^24.8.1",
-    "@digital-alchemy/hass": "^24.9.3",
-    "@digital-alchemy/mqtt-extension": "^24.7.1",
-    "@digital-alchemy/synapse": "^24.9.3",
+    "@digital-alchemy/automation": "^24.9.3",
+    "@digital-alchemy/core": "^24.9.3",
+    "@digital-alchemy/fastify-extension": "^24.9.1",
+    "@digital-alchemy/hass": "^24.9.4",
+    "@digital-alchemy/mqtt-extension": "^24.9.1",
+    "@digital-alchemy/synapse": "^24.9.4",
     "dayjs": "^1.11.13"
   },
   "devDependencies": {
     "@digital-alchemy/type-writer": "^24.9.2",
     "@eslint/compat": "^1.1.1",
     "@eslint/eslintrc": "^3.1.0",
-    "@eslint/js": "^9.11.0",
-    "@types/node": "^22.5.5",
-    "@typescript-eslint/eslint-plugin": "8.6.0",
-    "@typescript-eslint/parser": "8.6.0",
-    "eslint": "9.11.0",
+    "@eslint/js": "^9.11.1",
+    "@types/node": "^22.7.0",
+    "@typescript-eslint/eslint-plugin": "8.7.0",
+    "@typescript-eslint/parser": "8.7.0",
+    "eslint": "9.11.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -49,12 +49,6 @@
     "tsx": "^4.19.1",
     "type-fest": "^4.26.1",
     "typescript": "^5.6.2"
-  },
-  "resolutions": {
-    "@digital-alchemy/core": "portal:/home/zoe/DigitalAlchemyTS/core",
-    "@digital-alchemy/synapse": "portal:/home/zoe/DigitalAlchemyTS/synapse",
-    "@digital-alchemy/automation": "portal:/home/zoe/DigitalAlchemyTS/automation",
-    "@digital-alchemy/hass": "portal:/home/zoe/DigitalAlchemyTS/hass"
   },
   "packageManager": "yarn@4.5.0"
 }
