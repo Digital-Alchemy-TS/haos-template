@@ -21,11 +21,7 @@ cd "$DEPLOY_ROOT" || exit
 tar -czf "$BACKUP_ARCHIVE" .
 cd - || exit
 
-# create new code
-npx tsc -p tsconfig.deploy.json
-
-cp package.json "$DEPLOY_ROOT"
+cp -r src package.json "$DEPLOY_ROOT"
 rm -rf "$DEPLOY_ROOT/node_modules" "$DEPLOY_ROOT/src" "$DEPLOY_ROOT/yarn.lock" "$DEPLOY_ROOT/package-lock.json"
-mv ./deploy "$DEPLOY_ROOT/src"
 
 figlet -f "Pagga" "Complete" | npx lolcatjs

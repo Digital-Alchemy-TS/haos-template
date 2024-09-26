@@ -1,8 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "outDir": "./deploy"
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "tmp", "dist", "src/**/*.spec.ts"]
-}
