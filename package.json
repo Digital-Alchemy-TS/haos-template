@@ -31,7 +31,7 @@
     "ws": "^8.18.0"
   },
   "devDependencies": {
-    "@digital-alchemy/type-writer": "^24.9.6",
+    "@digital-alchemy/type-writer": "^24.9.7",
     "@eslint/compat": "^1.1.1",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.11.1",
