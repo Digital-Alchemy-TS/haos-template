@@ -625,12 +625,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.7.0":
-  version: 22.7.0
-  resolution: "@types/node@npm:22.7.0"
+"@types/node@npm:^22.7.4":
+  version: 22.7.4
+  resolution: "@types/node@npm:22.7.4"
   dependencies:
     undici-types: "npm:~6.19.2"
-  checksum: 10/6476d94a4c0fbf60df56634063e8aa26da1152e7096daf374f1eb010eab1c7ef4cdb75ab2508480e82c0b56538e0e7bdfc72af47e7a4e4ace37f2035eddfd3c2
+  checksum: 10/19ddab80c4eba2253c855ed67c9bbc47417183049d01e59010a738bd80d47338bab79fd1f44ae51516bd63a1db4bf21ddb38b16bf6401a2e93252068ec52e88b
   languageName: node
   linkType: hard
 
@@ -2495,7 +2495,7 @@ __metadata:
     "@eslint/compat": "npm:^1.1.1"
     "@eslint/eslintrc": "npm:^3.1.0"
     "@eslint/js": "npm:^9.11.1"
-    "@types/node": "npm:^22.7.0"
+    "@types/node": "npm:^22.7.4"
     "@types/node-cron": "npm:^3"
     "@types/ws": "npm:^8"
     "@typescript-eslint/eslint-plugin": "npm:8.7.0"
