@@ -91,9 +91,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@digital-alchemy/hass@npm:^24.9.4":
-  version: 24.9.4
-  resolution: "@digital-alchemy/hass@npm:24.9.4"
+"@digital-alchemy/hass@npm:^24.10.1":
+  version: 24.10.1
+  resolution: "@digital-alchemy/hass@npm:24.10.1"
   peerDependencies:
     "@digital-alchemy/core": "*"
     dayjs: ^1
@@ -101,8 +101,8 @@ __metadata:
     uuid: ^10
     ws: ^8
   bin:
-    mock-assistant: dist/mock_assistant/main.js
-  checksum: 10/d63e16382642baa304d8f934718010c6462ad553b6bf255088d242d7442b629901aee2119fa44733907f6cb04d4f909ee85b142d08b753fc5e54dd5984c8572f
+    mock-assistant: scripts/mock-assistant.sh
+  checksum: 10/f1b6ac5a2ebd451cc07a58673cd39dec9f6ebbb9f310c3b6bd82f6e9e621647fb782fa648e4a61603a97d904f9334d435e23bd0190b27675248d5c1f34594c32
   languageName: node
   linkType: hard
 
@@ -2495,7 +2495,7 @@ __metadata:
     "@digital-alchemy/automation": "npm:^24.9.3"
     "@digital-alchemy/core": "npm:^24.9.5"
     "@digital-alchemy/fastify-extension": "npm:^24.9.1"
-    "@digital-alchemy/hass": "npm:^24.9.4"
+    "@digital-alchemy/hass": "npm:^24.10.1"
     "@digital-alchemy/mqtt-extension": "npm:^24.9.1"
     "@digital-alchemy/synapse": "npm:^24.9.4"
     "@digital-alchemy/type-writer": "npm:^24.9.7"

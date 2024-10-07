@@ -21,7 +21,7 @@
     "@digital-alchemy/automation": "^24.9.3",
     "@digital-alchemy/core": "^24.9.5",
     "@digital-alchemy/fastify-extension": "^24.9.1",
-    "@digital-alchemy/hass": "^24.9.4",
+    "@digital-alchemy/hass": "^24.10.1",
     "@digital-alchemy/mqtt-extension": "^24.9.1",
     "@digital-alchemy/synapse": "^24.9.4",
     "dayjs": "^1.11.13",
