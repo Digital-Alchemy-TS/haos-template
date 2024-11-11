@@ -64,6 +64,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@digital-alchemy/core@npm:^24.11.1":
+  version: 24.11.1
+  resolution: "@digital-alchemy/core@npm:24.11.1"
+  dependencies:
+    chalk: "npm:^5.3.0"
+    dayjs: "npm:^1.11.13"
+    dotenv: "npm:^16.4.5"
+    ini: "npm:^5.0.0"
+    js-yaml: "npm:^4.1.0"
+    minimist: "npm:^1.2.8"
+    node-cron: "npm:^3.0.3"
+    uuid: "npm:^11.0.3"
+  checksum: 10/a811dd5dc7aa145f5ab2f6f57bf35b087bdfd0b632702e604f70706d30a512ec44987e80eeea2144c3483b8d1ca5331e405468305c293c72fafc47a0eaf1e126
+  languageName: node
+  linkType: hard
+
 "@digital-alchemy/core@npm:^24.9.5":
   version: 24.9.5
   resolution: "@digital-alchemy/core@npm:24.9.5"
@@ -91,18 +107,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@digital-alchemy/hass@npm:^24.9.4":
-  version: 24.9.4
-  resolution: "@digital-alchemy/hass@npm:24.9.4"
-  peerDependencies:
-    "@digital-alchemy/core": "*"
-    dayjs: ^1
-    semver: ^7
-    uuid: ^10
-    ws: ^8
+"@digital-alchemy/hass@npm:^24.11.2":
+  version: 24.11.2
+  resolution: "@digital-alchemy/hass@npm:24.11.2"
+  dependencies:
+    "@digital-alchemy/core": "npm:^24.11.1"
+    dayjs: "npm:^1.11.13"
+    semver: "npm:^7.6.3"
+    type-fest: "npm:^4.26.1"
+    uuid: "npm:^11.0.3"
+    ws: "npm:^8.18.0"
   bin:
-    mock-assistant: dist/mock_assistant/main.js
-  checksum: 10/d63e16382642baa304d8f934718010c6462ad553b6bf255088d242d7442b629901aee2119fa44733907f6cb04d4f909ee85b142d08b753fc5e54dd5984c8572f
+    mock-assistant: scripts/mock-assistant.sh
+  checksum: 10/0106be8271b2fe4966484d491792af7ca389f847c6018fb8574d45a636875a574445c796068805243f15e39e0ca390a7ef7ea259126863f03923eb67083eb403
   languageName: node
   linkType: hard
 
@@ -1214,7 +1231,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^5":
+"chalk@npm:^5, chalk@npm:^5.3.0":
   version: 5.3.0
   resolution: "chalk@npm:5.3.0"
   checksum: 10/6373caaab21bd64c405bfc4bd9672b145647fc9482657b5ea1d549b3b2765054e9d3d928870cdf764fb4aad67555f5061538ff247b8310f110c5c888d92397ea
@@ -2495,7 +2512,7 @@ __metadata:
     "@digital-alchemy/automation": "npm:^24.9.3"
     "@digital-alchemy/core": "npm:^24.9.5"
     "@digital-alchemy/fastify-extension": "npm:^24.9.1"
-    "@digital-alchemy/hass": "npm:^24.9.4"
+    "@digital-alchemy/hass": "npm:^24.11.2"
     "@digital-alchemy/mqtt-extension": "npm:^24.9.1"
     "@digital-alchemy/synapse": "npm:^24.9.4"
     "@digital-alchemy/type-writer": "npm:^24.9.7"
@@ -4141,7 +4158,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.3.5, semver@npm:^7.5.3, semver@npm:^7.6.0, semver@npm:^7.6.1":
+"semver@npm:^7.3.5, semver@npm:^7.5.3, semver@npm:^7.6.0, semver@npm:^7.6.1, semver@npm:^7.6.3":
   version: 7.6.3
   resolution: "semver@npm:7.6.3"
   bin:
@@ -4896,6 +4913,15 @@ __metadata:
   bin:
     uuid: dist/bin/uuid
   checksum: 10/9a5f7aa1d6f56dd1e8d5f2478f855f25c645e64e26e347a98e98d95781d5ed20062d6cca2eecb58ba7c84bc3910be95c0451ef4161906abaab44f9cb68ffbdd1
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^11.0.3":
+  version: 11.0.3
+  resolution: "uuid@npm:11.0.3"
+  bin:
+    uuid: dist/esm/bin/uuid
+  checksum: 10/251385563195709eb0697c74a834764eef28e1656d61174e35edbd129288acb4d95a43f4ce8a77b8c2fc128e2b55924296a0945f964b05b9173469d045625ff2
   languageName: node
   linkType: hard
 
