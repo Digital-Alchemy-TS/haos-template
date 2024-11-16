@@ -25,7 +25,7 @@ export default [
     "plugin:prettier/recommended",
   ),
   {
-    files: ["src/**/*.ts"],
+    files: ["src/**/*.mts"],
     plugins: {
       "@typescript-eslint": typescriptEslint,
       import: fixupPluginRules(_import),

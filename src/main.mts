@@ -4,7 +4,7 @@ import { LIB_AUTOMATION } from "@digital-alchemy/automation";
 import { CreateApplication, StringConfig } from "@digital-alchemy/core";
 import { LIB_HASS } from "@digital-alchemy/hass";
 import { LIB_SYNAPSE } from "@digital-alchemy/synapse";
-import { HelloWorld } from "./hello-world";
+import { HelloWorld } from "./hello-world.mts";
 
 type Environments = "development" | "production" | "test";
 
@@ -27,7 +27,6 @@ const HOME_AUTOMATION = CreateApplication({
   // - LIB_SYNAPSE - create helper entities (requires integration)
   // - LIB_AUTOMATION - extra helper utilities focused on home automation tasks (requires synapse)
   // - LIB_MQTT - listen & publish mqtt messages
-  // - LIB_FASTIFY - http bindings
   libraries: [LIB_HASS, LIB_SYNAPSE, LIB_AUTOMATION],
 
   name: "home_automation",

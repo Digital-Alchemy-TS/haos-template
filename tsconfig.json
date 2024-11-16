@@ -14,12 +14,13 @@
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "sourceMap": true,
+    "rewriteRelativeImportExtensions": true,
     "outDir": "./build",
     "strictBindCallApply": true,
     "strictFunctionTypes": false,
     "target": "ESNext",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "tmp", "dist", "src/**/*.spec.ts"]
+  "include": ["src/**/*.mts"],
+  "exclude": ["node_modules", "tmp", "dist", "src/**/*.spec.mts"]
 }
