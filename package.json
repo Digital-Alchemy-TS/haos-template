@@ -8,7 +8,7 @@
     "build": "./scripts/deploy.sh",
     "typecheck": "tsc --skipLibCheck --noEmit",
     "watch": "nodemon --exec tsx src/main.ts",
-    "dev": "tsx src/main.ts",
+    "dev": "tsx src/main.mts",
     "format": "eslint --fix src/",
     "lint": "eslint src/",
     "rollback": "./scripts/rollback.sh",

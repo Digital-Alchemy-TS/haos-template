@@ -1,4 +1,4 @@
-import "./utils";
+import "./utils.mts";
 
 import { LIB_AUTOMATION } from "@digital-alchemy/automation";
 import { CreateApplication, StringConfig } from "@digital-alchemy/core";
