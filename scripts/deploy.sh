@@ -22,6 +22,6 @@ tar -czf "$BACKUP_ARCHIVE" .
 cd - || exit
 
 cp -r src package.json "$DEPLOY_ROOT"
-rm -rf "$DEPLOY_ROOT/node_modules" "$DEPLOY_ROOT/src" "$DEPLOY_ROOT/yarn.lock" "$DEPLOY_ROOT/package-lock.json"
+rm -rf "$DEPLOY_ROOT/node_modules" "$DEPLOY_ROOT/yarn.lock" "$DEPLOY_ROOT/package-lock.json"
 
 figlet -f "Pagga" "Complete" | npx lolcatjs
