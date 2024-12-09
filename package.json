@@ -24,7 +24,7 @@
     "@digital-alchemy/mqtt-extension": "^24.11.1",
     "@digital-alchemy/synapse": "^24.11.4",
     "dayjs": "^1.11.13",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "ini": "^5.0.0",
     "node-cron": "^3.0.3",
     "ws": "^8.18.0"
