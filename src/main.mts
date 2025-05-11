@@ -1,61 +1,42 @@
-import "./utils.mts";
+import { HOME_AUTOMATION } from "./app.module.mts";
 
-import { LIB_AUTOMATION } from "@digital-alchemy/automation";
-import { CreateApplication, StringConfig } from "@digital-alchemy/core";
-import { LIB_HASS } from "@digital-alchemy/hass";
-import { LIB_SYNAPSE } from "@digital-alchemy/synapse";
-import { HelloWorld } from "./hello-world.mts";
+void HOME_AUTOMATION.bootstrap({
+  // set to true if you want to run commands at boot without using lifecycle events
+  // will defer loading your code until dependencies are fully initialized
+  bootLibrariesFirst: false, // default value
 
-type Environments = "development" | "production" | "test";
-
-const HOME_AUTOMATION = CreateApplication({
-  // Define configurations to be loaded
-  //
-  // https://docs.digital-alchemy.app/docs/core/configuration
+  // Hard code overrides to library default configurations
+  // These can also be set via .env with this pattern: {library}_{var} ex: SYNAPSE_SQLITE_DB
   configuration: {
-    NODE_ENV: {
-      type: "string",
-      default: "development",
-      enum: ["development", "production", "test"],
-      description: "Code runner addon can set with it's own NODE_ENV",
-    } satisfies StringConfig<Environments>,
-  },
-
-  // Adding to this array will provide additional elements in TServiceParams for your code to use
-  //
-  // - LIB_HASS - type safe home assistant interactions
-  // - LIB_SYNAPSE - create helper entities (requires integration)
-  // - LIB_AUTOMATION - extra helper utilities focused on home automation tasks (requires synapse)
-  // - LIB_MQTT - listen & publish mqtt messages
-  libraries: [LIB_HASS, LIB_SYNAPSE, LIB_AUTOMATION],
-
-  name: "home_automation",
-
-  // use this list to force certain services to load first
-  priorityInit: [],
-
-  // add new services here
-  // keys affect how app is wired together & log contexts
-  //
-  // https://docs.digital-alchemy.app/docs/core/wiring
-  services: {
-    hello_world: HelloWorld,
+    boilerplate: {
+      /**
+       * ## Available options in decreasing verbosity -
+       * trace  = verbose chatter about work being performed (BIG NOISY)
+       * debug  = extra details about work being performed (good default level)
+       * info   = general messages
+       * warn   = correctable workflow errors
+       * error  = major issue in workflow
+       * silent = can't get less verbose than this
+       */
+      LOG_LEVEL: "info",
+    },
+    /**
+     * ℹ️ Options you might want if running more than 1 app or on multiple machines
+     */
+    synapse: {
+      /**
+       * Default value considers machine host name & app name. If value changes, synapse will require re-integration.
+       * Set to stable value if you want dev/prod setup while preserving common entities.
+       *
+       * ⚠️ entity states are associated with db
+       * this may trigger automation logic if the internal state database is not kept in sync between machines
+       */
+      // METADATA_UNIQUE_ID: "my_synapse_app",
+      /**
+       * This file contains internal runtime state, used to preserve entity state between boots
+       * Default values used if file not found / deleted
+       */
+      // SQLITE_DB: "/path/to/alternate/sqlite.db",
+    },
   },
 });
-
-// add your app to the global modules list
-declare module "@digital-alchemy/core" {
-  export interface LoadedModules {
-    home_automation: typeof HOME_AUTOMATION;
-  }
-}
-
-setImmediate(
-  async () =>
-    await HOME_AUTOMATION.bootstrap({
-      bootLibrariesFirst: true,
-      configuration: {
-        boilerplate: { LOG_LEVEL: "info" },
-      },
-    }),
-);

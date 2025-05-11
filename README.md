@@ -40,6 +40,15 @@ In order to help **Code Server** to keep `node` installed, you need to add a the
 
 ![ui location](https://docs.digital-alchemy.app/assets/images/init_command-006a565b7b07725ae1916391b89b10ae.png)
 
+### Build Types
+
+Use the type writer script to build custom definitions for your **Home Assistant** instance.
+These are written to a `src/hass` folder by default.
+
+```bash
+yarn type-writer
+```
+
 ## 💻 Commands
 
 Once your environment is set up, you can use provided commands from within the `package.json` to manage your workspace.
